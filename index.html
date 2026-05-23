@@ -1,42 +1,22 @@
+bash
+
+cat > /mnt/user-data/outputs/naveen-mangoes/index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Naveen Mangoes – Premium Thailand Mangoes from Karnataka, India</title>
-  <meta name="description" content="Naveen Mangoes grows premium Thailand variety mangoes near Vijayapura (Bijapur), Karnataka. 100% chemical-free, naturally ripened, farm-fresh. Retail & wholesale available." />
-  <meta name="keywords" content="thailand mango India, organic mango Bijapur, Naveen Mangoes, chemical free mango Karnataka, naturally ripened mango, jackfruit farm Karnataka, wholesale mango India" />
+  <title>Naveen Mangoes – Premium Thailand &amp; Japan Mangoes | Vijayapura, Karnataka</title>
+  <meta name="description" content="Naveen Mangoes grows premium Thailand & Japan variety mangoes on NH-50, Vijayapura 586127, Karnataka. 100% chemical-free, naturally ripened, farm-fresh. Retail & wholesale." />
+  <meta name="keywords" content="thailand mango Vijayapura, japan mango Karnataka, Naveen Mangoes Bijapur, chemical free mango, naturally ripened mango farm NH-50, wholesale mango Karnataka" />
   <meta name="author" content="Naveen Mangoes" />
   <link rel="canonical" href="https://naveenmangoes.in/" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Naveen Mangoes – Premium Thailand Mangoes" />
-  <meta property="og:description" content="Farm-fresh Thailand variety mangoes grown naturally near Vijayapura, Karnataka. No chemicals, available year-round." />
+  <meta property="og:title" content="Naveen Mangoes – Premium Thailand & Japan Mangoes, Vijayapura" />
+  <meta property="og:description" content="Farm-fresh Thailand & Japan variety mangoes grown naturally on NH-50, Vijayapura, Karnataka. No chemicals, year-round. Retail & Wholesale." />
   <meta property="og:url" content="https://naveenmangoes.in/" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1621956838481-56c9e164e93f?w=1200" />
-
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Naveen Mangoes",
-    "description": "Premium Thailand variety mango farm near Vijayapura, Karnataka. Chemical-free, naturally ripened, retail and wholesale.",
-    "telephone": "+918123505794",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Vijayapura",
-      "addressRegion": "Karnataka",
-      "addressCountry": "IN"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 16.83, "longitude": 75.72 },
-    "openingHours": "Mo-Su 07:00-19:00",
-    "priceRange": "₹₹"
-  }
-  </script>
-
-  <!-- Fonts -->
+  <meta property="og:image" content="farmer-photo.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Naveen Mangoes","description":"Premium Thailand and Japan variety mango farm on NH-50, Vijayapura Karnataka. Chemical-free, naturally ripened.","telephone":"+918123505794","address":{"@type":"PostalAddress","streetAddress":"NH-50 Gulbarga-Bijapur Highway","addressLocality":"Vijayapura","addressRegion":"Karnataka","postalCode":"586127","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":16.83,"longitude":75.72},"openingHours":"Mo-Su 07:00-19:00","priceRange":"₹₹"}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -44,440 +24,445 @@
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <span class="logo-icon">🥭</span>
-        <span class="logo-text">Naveen <em>Mangoes</em></span>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-icon">🥭</span>
+      <span class="logo-text">Naveen <em>Mangoes</em></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#farming">Farming</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#media">Press</a></li>
+      <li><a href="#contact" class="nav-cta">Order Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO — uses your real farmer photo -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img class="hero-img" src="farmer-photo.png" alt="Naveen – Founder, at Thailand Mango Farm, NH-50 Vijayapura Karnataka" loading="eager" />
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge reveal-hero">Thailand &amp; Japan Variety &middot; Chemical-Free &middot; Year-Round &middot; NH-50 Vijayapura</span>
+    <h1 class="hero-title reveal-hero">Premium Thailand<br /><em>&amp; Japan Mangoes</em><br />Grown in Karnataka</h1>
+    <p class="hero-sub reveal-hero">
+      Exotic varieties cultivated on our own farm, NH-50 Vijayapura 586127.<br />
+      No chemicals. No artificial ripening. Pure, sweet, farm-fresh perfection.
+    </p>
+    <div class="hero-actions reveal-hero">
+      <a href="#products" class="btn btn-primary btn-lg">Explore Products</a>
+      <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27m%20interested%20in%20your%20mangoes!" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
       </a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#why">Why Us</a></li>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item reveal"><span class="stat-num">NH-50</span><span class="stat-label">Vijayapura 586127</span></div>
+  <div class="stat-divider"></div>
+  <div class="stat-item reveal"><span class="stat-num">0</span><span class="stat-label">Chemicals Used</span></div>
+  <div class="stat-divider"></div>
+  <div class="stat-item reveal"><span class="stat-num">365</span><span class="stat-label">Days Available</span></div>
+  <div class="stat-divider"></div>
+  <div class="stat-item reveal"><span class="stat-num">2</span><span class="stat-label">Exotic Varieties</span></div>
+  <div class="stat-divider"></div>
+  <div class="stat-item reveal"><span class="stat-num">100%</span><span class="stat-label">Naturally Ripened</span></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div class="img-frame img-frame--main">
+          <img src="farmer-photo.png" alt="Naveen – Founder of Naveen Mangoes with Thailand mango trees and drip irrigation, Vijayapura" loading="lazy" />
+        </div>
+        <div class="about-badge-float">
+          <span class="float-icon">💧</span>
+          <div><strong>Drip Irrigated Farm</strong><small>NH-50 Vijayapura, KA</small></div>
+        </div>
+        <div class="about-press-badge reveal">
+          <span class="press-icon">📰</span>
+          <div><strong>Featured in Press</strong><small>Kannada Media &amp; Govt</small></div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <span class="section-tag">Our Story</span>
+        <h2>From Southeast Asia's<br /><em>Finest Orchards</em><br />to Karnataka's Soil</h2>
+        <p class="about-para">Naveen Mangoes is a pioneering organic fruit farm located on <strong>NH-50 Gulbarga-Bijapur Highway, Vijayapura 586127, Karnataka</strong>. We cultivate premium <strong>Thailand and Japan variety mangoes</strong> — among the most prized exotic varieties in the world — right here in India.</p>
+        <p class="about-para">Our farm uses <strong>modern drip irrigation</strong> and sustainable, chemical-free farming methods. Every mango is allowed to ripen naturally on the tree — no calcium carbide, no artificial shortcuts. The result is unmatched flavour, full nutrition, and genuine farm-to-home freshness.</p>
+        <p class="about-para">Our pioneering work has been <strong>featured in Kannada media</strong> and recognised by government officials — making us one of the first farms in the Vijayapura region to commercially supply exotic Thailand and Japan mango varieties.</p>
+        <div class="about-tags">
+          <span class="tag">🥭 Thailand Variety</span>
+          <span class="tag">🍈 Japan Variety</span>
+          <span class="tag">💧 Drip Irrigation</span>
+          <span class="tag">📍 NH-50 Vijayapura</span>
+          <span class="tag">🚚 Retail &amp; Wholesale</span>
+          <span class="tag">📅 Year-Round Supply</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why section" id="why">
+  <div class="why-bg-text">MANGO</div>
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Why Naveen Mangoes</span>
+      <h2>The Difference You Can <em>Taste</em></h2>
+      <p class="section-sub">Six promises that set our mangoes apart from everything else in the market.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">🚫</div><h3>Zero Chemicals</h3><p>No pesticides, no calcium carbide, no artificial ripening agents. What you eat is exactly what nature grew.</p></div>
+      <div class="why-card reveal"><div class="why-icon">🌞</div><h3>Tree-Ripened</h3><p>Our mangoes ripen naturally on the tree, developing full sugar content, complex flavour, and intense aroma.</p></div>
+      <div class="why-card reveal featured-card"><div class="why-icon">🥭</div><h3>Thailand &amp; Japan Varieties</h3><p>The world's most prized exotic mango varieties — fibre-free, intensely sweet, golden flesh — grown in Karnataka.</p></div>
+      <div class="why-card reveal"><div class="why-icon">💧</div><h3>Drip Irrigated Farm</h3><p>Precision drip irrigation ensures optimal water use and consistent fruit quality across every season.</p></div>
+      <div class="why-card reveal"><div class="why-icon">📅</div><h3>Year-Round Supply</h3><p>Available 365 days a year for both retail and wholesale buyers — no seasonal waiting.</p></div>
+      <div class="why-card reveal"><div class="why-icon">🚚</div><h3>Farm Direct</h3><p>No middlemen. Fresh from our NH-50 farm to your table — maximum freshness, fair pricing, full transparency.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products section" id="products">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Our Products</span>
+      <h2>Straight from the <em>Farm</em></h2>
+      <p class="section-sub">Premium exotic mango varieties available for retail buyers and bulk wholesale orders.</p>
+    </div>
+    <div class="products-grid">
+
+      <!-- Thailand Mango -->
+      <div class="product-card reveal">
+        <div class="product-img-wrap">
+          <img src="farmer-photo.png" alt="Thailand Mango – Naveen Mangoes, NH-50 Vijayapura" loading="lazy" style="object-position:center 20%;" />
+          <span class="product-badge">⭐ Star Product</span>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Thailand Mango</h3>
+          <p class="product-desc">Fibre-free, intensely sweet, golden-fleshed mangoes of the premium Thailand variety. Naturally ripened on our drip-irrigated farm, available throughout the year.</p>
+          <ul class="product-highlights">
+            <li>✔ Naturally ripened on the tree</li>
+            <li>✔ Zero chemicals or wax coating</li>
+            <li>✔ Available year-round (365 days)</li>
+            <li>✔ Farm-fresh from NH-50, Vijayapura 586127</li>
+            <li>✔ Retail &amp; wholesale available</li>
+          </ul>
+          <div class="product-pricing">
+            <div class="price-tag"><span class="price-type">Retail</span><span class="price-note">Contact for current pricing</span></div>
+            <div class="price-tag"><span class="price-type">Wholesale</span><span class="price-note">Bulk orders welcome</span></div>
+          </div>
+          <a href="https://wa.me/918123505794?text=Hi%2C%20I%27d%20like%20to%20order%20Thailand%20Mangoes%20from%20Naveen%20Mangoes%21%20Please%20share%20pricing." class="btn btn-product" target="_blank" rel="noopener">Inquire on WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Japan Mango -->
+      <div class="product-card reveal">
+        <div class="product-img-wrap">
+          <img src="gallery-real.png" alt="Japan Mango – Premium variety, Naveen Mangoes Vijayapura" loading="lazy" style="object-position:center 15%;" />
+          <span class="product-badge product-badge--gold">🏆 Ultra-Premium</span>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Japan Mango</h3>
+          <p class="product-desc">Ultra-premium Japan variety — known for extraordinary sweetness, silky smooth texture, and rich golden colour. One of the rarest and most sought-after mango varieties in the world.</p>
+          <ul class="product-highlights">
+            <li>✔ Ultra-premium Japan variety</li>
+            <li>✔ Exceptionally rich sweetness &amp; aroma</li>
+            <li>✔ 100% chemical-free cultivation</li>
+            <li>✔ Drip-irrigated natural farming</li>
+            <li>✔ Retail, wholesale &amp; export quality</li>
+          </ul>
+          <div class="product-pricing">
+            <div class="price-tag"><span class="price-type">Retail / Export</span><span class="price-note">Premium pricing — call us</span></div>
+            <div class="price-tag"><span class="price-type">Wholesale</span><span class="price-note">Bulk rates available</span></div>
+          </div>
+          <a href="https://wa.me/918123505794?text=Hi%2C%20I%27m%20interested%20in%20Japan%20Mango%20from%20Naveen%20Mangoes%21%20Please%20share%20availability." class="btn btn-product" target="_blank" rel="noopener">Inquire on WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="wholesale-banner reveal">
+      <div class="wb-text">
+        <h3>🏪 Wholesale &amp; Bulk Orders Welcome</h3>
+        <p>We supply to retailers, hotels, restaurants, supermarkets and exporters across Karnataka. Get premium Thailand &amp; Japan mangoes at competitive wholesale rates with reliable year-round supply from our NH-50 farm, Vijayapura 586127.</p>
+      </div>
+      <div class="wb-actions">
+        <a href="tel:+918123505794" class="btn btn-primary btn-lg">📞 Call Now</a>
+        <a href="https://wa.me/918123505794?text=Hi%2C%20I%27m%20interested%20in%20wholesale%20bulk%20mango%20orders!" class="btn btn-whatsapp btn-lg" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FARMING -->
+<section class="organic section" id="farming">
+  <div class="organic-inner">
+    <div class="organic-img-col reveal">
+      <img src="farmer-photo.png" alt="Naveen at his Thailand mango farm with drip irrigation, NH-50 Vijayapura Karnataka" loading="lazy" />
+      <div class="organic-float-card">
+        <span class="ofc-icon">💧</span>
+        <div><strong>Drip Irrigation</strong><small>Modern precision farming</small></div>
+      </div>
+    </div>
+    <div class="organic-text reveal">
+      <span class="section-tag">Our Farming Philosophy</span>
+      <h2>Farming the Way<br /><em>Nature Intended</em></h2>
+      <p style="color:var(--text-mid);margin-top:1rem;">At Naveen Mangoes, every decision on the farm starts with one question: what does nature want? Our commitment to natural, chemical-free farming is what makes the difference in every bite.</p>
+      <div class="organic-points">
+        <div class="op-item">
+          <span class="op-num">01</span>
+          <div class="op-content">
+            <h4>Modern Drip Irrigation</h4>
+            <p>Our precision drip irrigation delivers water directly to the root zone of each tree — reducing waste and ensuring consistent fruit development year-round, even in dry months.</p>
+          </div>
+        </div>
+        <div class="op-item">
+          <span class="op-num">02</span>
+          <div class="op-content">
+            <h4>Tree-Ripening — Zero Chemicals</h4>
+            <p>Every fruit stays on the tree until full natural maturity. Absolutely no calcium carbide, no ethylene gas, no artificial shortcuts — ever. Your family deserves only the real thing.</p>
+          </div>
+        </div>
+        <div class="op-item">
+          <span class="op-num">03</span>
+          <div class="op-content">
+            <h4>Exotic Variety Cultivation</h4>
+            <p>We grow Thailand and Japan mango varieties — brought from Southeast Asia and carefully cultivated to thrive in Vijayapura's climate and Karnataka's rich black cotton soil.</p>
+          </div>
+        </div>
+        <div class="op-item">
+          <span class="op-num">04</span>
+          <div class="op-content">
+            <h4>Hand-Picked &amp; Farm Direct</h4>
+            <p>Each fruit is hand-picked at peak natural ripeness, handled gently, and dispatched directly from our farm to you — no cold-chain delays, no middlemen, maximum freshness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY — uses your real gallery photo -->
+<section class="gallery section" id="gallery">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Gallery</span>
+      <h2 style="color:var(--white);">From Our <em>Farm</em></h2>
+      <p style="color:rgba(255,255,255,.65);max-width:480px;margin:1rem auto 0;">Real moments from Naveen Mangoes — our farm, our trees, our harvest, our recognition.</p>
+    </div>
+
+    <!-- YOUR REAL GALLERY PHOTO -->
+    <div class="real-gallery reveal">
+      <img src="gallery-real.png" alt="Naveen Mangoes Real Farm Gallery – Thailand Japan Mango Trees, Kannada Press Coverage, Government Recognition, Vijayapura Karnataka" loading="lazy" class="real-gallery-img" />
+      <div class="real-gallery-caption">
+        <p>📸 Our real farm — mango trees laden with fruit, Kannada newspaper coverage (ಥಾಯ್ಲ್ಯಾಂಡ್, ಜಪಾನ್ ತಳಿ), government recognition in Vijayapura, and export-quality packaged mangoes ready for delivery.</p>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDERS FOR FUTURE PHOTOS/VIDEOS -->
+    <div class="gallery-upload-section reveal">
+      <h3>🌿 More Photos &amp; Videos Coming Soon</h3>
+      <div class="upload-grid">
+        <div class="upload-placeholder"><span>🎬</span><p>Farm Reels</p><small>Harvest &amp; tree tour videos</small></div>
+        <div class="upload-placeholder"><span>🔪</span><p>Mango Cutting</p><small>Taste &amp; quality showcase</small></div>
+        <div class="upload-placeholder"><span>🚜</span><p>Harvest Process</p><small>From tree to packaging</small></div>
+        <div class="upload-placeholder"><span>📦</span><p>Packing &amp; Dispatch</p><small>Order fulfilment photos</small></div>
+      </div>
+      <p class="gallery-note">📲 Share your farm videos and photos via WhatsApp to <a href="https://wa.me/918123505794" style="color:var(--mango);font-weight:600;">8123505794</a> — we'll add them to the site instantly!</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA / PRESS -->
+<section class="media section" id="media">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Media &amp; Recognition</span>
+      <h2>Our Work, <em>Recognised</em></h2>
+      <p class="section-sub">Naveen Mangoes has been featured in the Kannada press and recognised by Vijayapura government officials for bringing exotic mango varieties to Karnataka.</p>
+    </div>
+    <div class="media-grid">
+      <div class="media-card reveal">
+        <div class="media-icon">📰</div>
+        <h4>Kannada Press Coverage</h4>
+        <p>Featured in leading Kannada newspapers for pioneering cultivation of Thailand and Japan mango varieties near Vijayapura, Karnataka. The story captured regional attention.</p>
+      </div>
+      <div class="media-card reveal">
+        <div class="media-icon">🏛️</div>
+        <h4>Government Recognition</h4>
+        <p>Presented premium mangoes to Vijayapura government officials, showcasing the potential of exotic variety cultivation in Karnataka's agricultural landscape.</p>
+      </div>
+      <div class="media-card reveal">
+        <div class="media-icon">🌏</div>
+        <h4>Exotic Variety Pioneer</h4>
+        <p>One of the first farms in the Vijayapura region to successfully cultivate and commercially supply Thailand and Japan mango varieties at scale.</p>
+      </div>
+    </div>
+    <div class="press-highlight reveal">
+      <div class="press-img-col">
+        <img src="gallery-real.png" alt="Naveen Mangoes Kannada press coverage and government recognition" loading="lazy" style="border-radius:var(--radius-lg);width:100%;object-fit:cover;height:320px;object-position:center 38%;" />
+      </div>
+      <div class="press-text-col">
+        <h3>ಥಾಯ್ಲ್ಯಾಂಡ್, ಜಪಾನ್ ತಳಿ — Featured in Kannada Media</h3>
+        <p>The story of Naveen Mangoes — bringing Thailand and Japan mango varieties to Vijayapura's soil — has captured the attention of regional Kannada newspapers and agricultural officials alike.</p>
+        <p style="margin-top:1rem;">Our farm has been highlighted as a model of modern, chemical-free exotic fruit cultivation — combining traditional farming values with drip irrigation technology and passion for quality that Karnataka's agriculture deserves.</p>
+        <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20farm!" class="btn btn-primary" target="_blank" style="margin-top:1.5rem;display:inline-flex;">Learn More About Our Farm</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials section" id="testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Customer Love</span>
+      <h2>What People Are <em>Saying</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The Thailand mangoes from Naveen Mangoes are unbelievably sweet. You can immediately tell they haven't been chemically ripened — the aroma alone is incredible."</p>
+        <div class="testi-author"><div class="testi-avatar">P</div><div><strong>Priya S.</strong><small>Bengaluru, Retail Customer</small></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"We supply Naveen Mangoes to our hotel buffet. Consistency and quality is excellent — guests always ask where we source from. Wholesale pricing is very fair too."</p>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><strong>Ramesh K.</strong><small>Hotel Manager, Vijayapura</small></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"I've ordered mangoes from many farms. These are genuinely different — no chemical smell, naturally sweet, and arrived perfectly fresh. The Japan variety is extraordinary."</p>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><strong>Anil M.</strong><small>Pune, Online Customer</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="section-tag">Get in Touch</span>
+      <h2>Order Fresh. <em>Order Direct.</em></h2>
+      <p class="section-sub">Whether you're a home buyer or a wholesaler — we're just a call or WhatsApp away.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-items">
+          <div class="contact-item"><span class="ci-icon">📞</span><div><strong>Phone</strong><a href="tel:+918123505794">+91 8123 505 794</a></div></div>
+          <div class="contact-item"><span class="ci-icon">💬</span><div><strong>WhatsApp</strong><a href="https://wa.me/918123505794" target="_blank" rel="noopener">Chat to place an order instantly</a></div></div>
+          <div class="contact-item"><span class="ci-icon">📍</span><div><strong>Farm Address</strong><span>NH-50 Gulbarga-Bijapur Highway,<br />Vijayapura, Karnataka 586127, India</span></div></div>
+          <div class="contact-item"><span class="ci-icon">🕐</span><div><strong>Hours</strong><span>7:00 AM – 7:00 PM, All Days</span></div></div>
+        </div>
+        <div class="contact-ctas">
+          <a href="tel:+918123505794" class="btn btn-primary btn-lg">📞 Call Now</a>
+          <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27d%20like%20to%20place%20an%20order!" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Order
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-box reveal">
+        <h3>Send an Inquiry</h3>
+        <form id="inquiryForm" novalidate>
+          <div class="form-group"><label for="fname">Your Name</label><input type="text" id="fname" placeholder="e.g. Ramesh Kumar" required /></div>
+          <div class="form-group"><label for="fphone">Phone / WhatsApp Number</label><input type="tel" id="fphone" placeholder="+91 98765 43210" required /></div>
+          <div class="form-group">
+            <label for="ftype">Order Type</label>
+            <select id="ftype">
+              <option value="retail-thailand">Retail – Thailand Mango</option>
+              <option value="wholesale-thailand">Wholesale – Thailand Mango</option>
+              <option value="retail-japan">Retail – Japan Mango</option>
+              <option value="wholesale-japan">Wholesale – Japan Mango</option>
+              <option value="export">Export Inquiry</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="fmsg">Message / Requirements</label><textarea id="fmsg" rows="4" placeholder="How many kg? Which variety? Delivery location? Any other details..."></textarea></div>
+          <button type="submit" class="btn btn-whatsapp btn-full btn-lg">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Send via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- MAP — NH-50 Vijayapura 586127 -->
+    <div class="map-section reveal">
+      <h3>📍 Find Us — NH-50 Gulbarga-Bijapur Highway, Vijayapura 586127</h3>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30444.5!2d75.6752!3d16.8302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5f3a4d7bcb305%3A0xc7a39db4a19dd3be!2sVijayapura%2C%20Karnataka%20586127!5e0!3m2!1sen!2sin!4v1716000000000"
+          width="100%" height="380" style="border:0;" allowfullscreen loading="lazy"
+          title="Naveen Mangoes – NH-50 Gulbarga-Bijapur Highway, Vijayapura 586127 Karnataka">
+        </iframe>
+      </div>
+      <div class="map-address-bar">
+        <span>📍 NH-50 Gulbarga-Bijapur Highway, Vijayapura, Karnataka 586127 &nbsp;|&nbsp; 📞 +91 8123 505 794</span>
+        <a href="https://maps.google.com/?q=NH-50+Vijayapura+Karnataka+586127" target="_blank" class="btn btn-outline" style="padding:.5rem 1.2rem;font-size:.85rem;">Open in Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27d%20like%20to%20place%20an%20order!" class="wa-float" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 24 24" fill="white" width="30" height="30"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name">🥭 Naveen <em>Mangoes</em></div>
+      <p>Premium Thailand &amp; Japan variety mangoes grown naturally on NH-50, Vijayapura 586127, Karnataka. Chemical-free, farm-fresh, available 365 days a year.</p>
+      <div style="margin-top:1.2rem;"><a href="https://wa.me/918123505794" class="social-btn" target="_blank">💬 WhatsApp Us</a></div>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
         <li><a href="#products">Products</a></li>
-        <li><a href="#organic">Farming</a></li>
+        <li><a href="#farming">Our Farming</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact" class="nav-cta">Order Now</a></li>
+        <li><a href="#media">Press &amp; Media</a></li>
+        <li><a href="#contact">Contact &amp; Order</a></li>
       </ul>
     </div>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <img class="hero-img" src="https://images.unsplash.com/photo-1621956838481-56c9e164e93f?w=1600&q=80" alt="Premium Thailand Mangoes Farm Karnataka" loading="eager" />
-      <div class="hero-overlay"></div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>📞 <a href="tel:+918123505794">+91 8123 505 794</a></p>
+      <p>💬 <a href="https://wa.me/918123505794" target="_blank">WhatsApp Order</a></p>
+      <p>📍 NH-50 Gulbarga-Bijapur Hwy,<br />Vijayapura, Karnataka 586127</p>
+      <p style="margin-top:.8rem;">🕐 7 AM – 7 PM, All Days</p>
     </div>
-    <div class="hero-content">
-      <span class="hero-badge">Chemical-Free · Farm Direct · Available Year-Round</span>
-      <h1 class="hero-title">Premium Thailand<br /><em>Mangoes</em><br />Naturally Grown in India</h1>
-      <p class="hero-sub">Exotic Thailand variety cultivated near Vijayapura, Karnataka.<br />No chemicals. No artificial ripening. Pure, sweet, farm-fresh perfection.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary btn-lg">Order Now</a>
-        <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27m%20interested%20in%20your%20mangoes!" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp Us
-        </a>
-      </div>
-      <div class="hero-scroll">
-        <div class="scroll-line"></div>
-        <span>Scroll</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== STATS BAR ===== -->
-  <div class="stats-bar">
-    <div class="stat-item reveal"><span class="stat-num">25km</span><span class="stat-label">From Vijayapura</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal"><span class="stat-num">0</span><span class="stat-label">Chemicals Used</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal"><span class="stat-num">365</span><span class="stat-label">Days Available</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal"><span class="stat-num">100%</span><span class="stat-label">Naturally Ripened</span></div>
   </div>
+  <div class="footer-bottom">
+    <p>© 2026 Naveen Mangoes. All rights reserved. | Premium Thailand &amp; Japan Mango Farm, NH-50 Vijayapura, Karnataka 586127, India</p>
+  </div>
+</footer>
 
-  <!-- ===== ABOUT ===== -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-images reveal">
-          <div class="img-frame img-frame--main">
-            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=700&q=80" alt="Thailand Mango Farm Karnataka" loading="lazy" />
-          </div>
-          <div class="img-frame img-frame--accent">
-            <img src="https://images.unsplash.com/photo-1559181567-c3190ca9d948?w=400&q=80" alt="Fresh Mangoes closeup" loading="lazy" />
-          </div>
-          <div class="about-badge-float">
-            <span class="float-icon">🌱</span>
-            <div><strong>Naturally Grown</strong><small>No Chemicals</small></div>
-          </div>
-        </div>
-        <div class="about-text reveal">
-          <span class="section-tag">Our Story</span>
-          <h2>From Thailand's Orchards<br />to Karnataka's Soil</h2>
-          <p class="about-para">Naveen Mangoes began with a singular obsession: bringing the most prized mango variety in Southeast Asia and growing it right here in India — without compromise.</p>
-          <p class="about-para">Our farm sits approximately 25 km from Vijayapura (Bijapur), Karnataka, where the climate and rich black cotton soil create perfect conditions for these exotic Thailand variety mangoes to flourish.</p>
-          <p class="about-para">Every mango that leaves our farm is naturally ripened on the tree — no calcium carbide, no ethylene gas, no shortcuts. Just patience, sunshine, and the same love farmers have shown for generations.</p>
-          <div class="about-tags">
-            <span class="tag">🥭 Thailand Variety</span>
-            <span class="tag">🌿 Organic Farming</span>
-            <span class="tag">📍 Near Vijayapura</span>
-            <span class="tag">🚚 Retail & Wholesale</span>
-            <span class="tag">📅 Year-Round</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== WHY US ===== -->
-  <section class="why section" id="why">
-    <div class="why-bg-text">MANGO</div>
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="section-tag">Why Naveen Mangoes</span>
-        <h2>The Difference You Can <em>Taste</em></h2>
-        <p style="color:var(--text-mid);max-width:520px;margin:1rem auto 0;">Six promises that set our mangoes apart from everything else in the market.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card reveal"><div class="why-icon">🚫</div><h3>Zero Chemicals</h3><p>No pesticides, no artificial ripening agents. What you eat is exactly what nature intended.</p></div>
-        <div class="why-card reveal"><div class="why-icon">🌞</div><h3>Tree-Ripened</h3><p>Our mangoes ripen naturally on the tree, developing full sugar content and complex flavour profiles.</p></div>
-        <div class="why-card reveal" style="border-top:3px solid var(--mango);"><div class="why-icon">🥭</div><h3>Exotic Thailand Variety</h3><p>The prized Thai mango — fibre-free flesh, intensely sweet aroma, golden colour — grown right here in Karnataka.</p></div>
-        <div class="why-card reveal"><div class="why-icon">📅</div><h3>Year-Round Supply</h3><p>Unlike seasonal varieties, our Thailand mangoes are available throughout the year for both retail and wholesale buyers.</p></div>
-        <div class="why-card reveal"><div class="why-icon">🌱</div><h3>Organic Farming</h3><p>Sustainable practices that protect the soil, the ecosystem, and ultimately the quality of every fruit we grow.</p></div>
-        <div class="why-card reveal"><div class="why-icon">🚚</div><h3>Farm Direct</h3><p>No middlemen. Fresh from our farm to your table, ensuring maximum freshness and fair pricing always.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PRODUCTS ===== -->
-  <section class="products section" id="products">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="section-tag">Our Products</span>
-        <h2>Straight from the Farm</h2>
-        <p style="color:var(--text-mid);max-width:520px;margin:1rem auto 0;">Premium quality fruits available for retail buyers and bulk wholesale orders.</p>
-      </div>
-      <div class="products-grid">
-        <!-- Thailand Mango -->
-        <div class="product-card reveal">
-          <div class="product-img-wrap">
-            <img src="https://images.unsplash.com/photo-1521243093753-b0fda9da7780?w=700&q=80" alt="Thailand Mango Naveen Mangoes" loading="lazy" />
-            <span class="product-badge">⭐ Star Product</span>
-          </div>
-          <div class="product-body">
-            <h3 class="product-name">Thailand Mango</h3>
-            <p class="product-desc">Fibre-free, intensely sweet, golden-fleshed mangoes of the premium Thailand variety. Naturally ripened, available throughout the year.</p>
-            <ul class="product-highlights">
-              <li>✔ Naturally ripened on the tree</li>
-              <li>✔ No chemicals or wax coating</li>
-              <li>✔ Farm-fresh delivery</li>
-              <li>✔ Available year-round</li>
-            </ul>
-            <div class="product-pricing">
-              <div class="price-tag">
-                <span class="price-type">Retail</span>
-                <span class="price-note">Contact for pricing</span>
-              </div>
-              <div class="price-tag">
-                <span class="price-type">Wholesale</span>
-                <span class="price-note">Bulk orders welcome</span>
-              </div>
-            </div>
-            <a href="https://wa.me/918123505794?text=Hi%2C%20I%27d%20like%20to%20order%20Thailand%20Mangoes%20from%20Naveen%20Mangoes!" class="btn btn-product" target="_blank" rel="noopener">
-              Inquire on WhatsApp
-            </a>
-          </div>
-        </div>
-        <!-- Jackfruit -->
-        <div class="product-card reveal">
-          <div class="product-img-wrap">
-            <img src="https://images.unsplash.com/photo-1565066795078-59a9e1d6e43f?w=700&q=80" alt="Fresh Jackfruit Naveen Farm" loading="lazy" />
-            <span class="product-badge product-badge--green">Farm Fresh</span>
-          </div>
-          <div class="product-body">
-            <h3 class="product-name">Fresh Jackfruit</h3>
-            <p class="product-desc">Naturally grown jackfruit from our farm. Sweet, aromatic, and harvested at perfect ripeness — no chemicals, no shortcuts.</p>
-            <ul class="product-highlights">
-              <li>✔ Naturally grown & ripened</li>
-              <li>✔ 100% chemical-free</li>
-              <li>✔ Seasonal availability</li>
-              <li>✔ Retail & wholesale both</li>
-            </ul>
-            <div class="product-pricing">
-              <div class="price-tag">
-                <span class="price-type">Retail & Wholesale</span>
-                <span class="price-note">Call for availability</span>
-              </div>
-            </div>
-            <a href="https://wa.me/918123505794?text=Hi%2C%20I%27m%20interested%20in%20Jackfruit%20from%20Naveen%20Mangoes!" class="btn btn-product" target="_blank" rel="noopener">
-              Ask About Jackfruit
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Wholesale Banner -->
-      <div class="wholesale-banner reveal">
-        <div class="wb-text">
-          <h3>Wholesale & Bulk Orders Welcome</h3>
-          <p>We supply to retailers, hotels, restaurants, and exporters across Karnataka. Get premium Thailand mangoes at competitive wholesale rates with reliable year-round supply.</p>
-        </div>
-        <a href="tel:+918123505794" class="btn btn-whatsapp btn-lg">📞 Call 8123505794</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ORGANIC FARMING ===== -->
-  <section class="organic section" id="organic">
-    <div class="organic-inner">
-      <div class="organic-img-col reveal">
-        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80" alt="Organic mango farming Karnataka" loading="lazy" />
-        <div class="organic-float-card">
-          <span class="ofc-icon">🌿</span>
-          <div>
-            <strong>100% Organic</strong>
-            <small>No synthetic chemicals ever</small>
-          </div>
-        </div>
-      </div>
-      <div class="organic-text reveal">
-        <span class="section-tag">Our Farming Philosophy</span>
-        <h2>Farming the Way<br />Nature Intended</h2>
-        <p style="color:var(--text-mid);margin-top:1rem;">At Naveen Mangoes, we believe the best mango is one the tree decided to ripen — not a chemical plant. Every decision we make on the farm starts with one question: what does nature want?</p>
-        <div class="organic-points">
-          <div class="op-item">
-            <span class="op-num">01</span>
-            <div class="op-content">
-              <h4>Natural Soil Care</h4>
-              <p>We maintain soil health using organic composts and natural inputs, keeping the land fertile without synthetic fertilisers or chemicals.</p>
-            </div>
-          </div>
-          <div class="op-item">
-            <span class="op-num">02</span>
-            <div class="op-content">
-              <h4>Tree-Ripening Only</h4>
-              <p>Every fruit stays on the tree until full natural maturity — no calcium carbide, no ethylene chambers, no artificial shortcuts.</p>
-            </div>
-          </div>
-          <div class="op-item">
-            <span class="op-num">03</span>
-            <div class="op-content">
-              <h4>Hand-Picked with Care</h4>
-              <p>Our team hand-picks each fruit at peak ripeness, handling gently to avoid bruising and preserve the farm-fresh quality.</p>
-            </div>
-          </div>
-          <div class="op-item">
-            <span class="op-num">04</span>
-            <div class="op-content">
-              <h4>Direct to Your Door</h4>
-              <p>From farm to hands — no long cold-chain delays, no middlemen. Just pure freshness delivered directly to you.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== GALLERY ===== -->
-  <section class="gallery section" id="gallery">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="section-tag">Gallery</span>
-        <h2 style="color:var(--white);">From Our Farm</h2>
-        <p style="color:rgba(255,255,255,.6);max-width:480px;margin:1rem auto 0;">A glimpse of life at Naveen Mangoes. Real farm photos and harvest videos coming soon.</p>
-      </div>
-      <div class="gallery-grid reveal">
-        <div class="gallery-item g-item--1">
-          <img src="https://images.unsplash.com/photo-1621956838481-56c9e164e93f?w=800&q=80" alt="Thailand Mango bunch Karnataka farm" loading="lazy" />
-          <div class="gallery-overlay"><span>Thailand Mangoes</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?w=500&q=80" alt="Mango harvest" loading="lazy" />
-          <div class="gallery-overlay"><span>Fresh Harvest</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1601493700631-2851280cf5a8?w=500&q=80" alt="Organic mango farm" loading="lazy" />
-          <div class="gallery-overlay"><span>Our Farm</span></div>
-        </div>
-        <div class="gallery-item g-item--5">
-          <img src="https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?w=800&q=80" alt="Premium mangoes farm direct" loading="lazy" />
-          <div class="gallery-overlay"><span>Farm Fresh Quality</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1565066795078-59a9e1d6e43f?w=500&q=80" alt="Fresh Jackfruit" loading="lazy" />
-          <div class="gallery-overlay"><span>Fresh Jackfruit</span></div>
-        </div>
-      </div>
-      <p class="gallery-note">📸 Real farm photos and harvest videos will be added soon. Follow us on Instagram for updates.</p>
-    </div>
-  </section>
-
-  <!-- ===== TESTIMONIALS ===== -->
-  <section class="testimonials section" id="testimonials">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="section-tag">Customer Love</span>
-        <h2>What People Are Saying</h2>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card reveal">
-          <div class="testi-stars">★★★★★</div>
-          <p>"The Thailand mangoes from Naveen Mangoes are unbelievably sweet. You can immediately tell they haven't been chemically ripened — the aroma alone is incredible."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">P</div>
-            <div><strong>Priya S.</strong><small>Bangalore, Retail Customer</small></div>
-          </div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="testi-stars">★★★★★</div>
-          <p>"We supply Naveen Mangoes to our hotel buffet. The consistency and quality is excellent. Guests always ask where we source from. Wholesale pricing is very fair."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">R</div>
-            <div><strong>Ramesh K.</strong><small>Hotel Manager, Vijayapura</small></div>
-          </div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="testi-stars">★★★★★</div>
-          <p>"I've ordered mangoes from many farms. These are genuinely different — no chemical smell, naturally sweet, and arrived perfectly fresh. Will definitely order again."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">A</div>
-            <div><strong>Anil M.</strong><small>Pune, Online Customer</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="section-tag">Get in Touch</span>
-        <h2>Order Fresh. Order Direct.</h2>
-        <p style="color:var(--text-mid);max-width:520px;margin:1rem auto 0;">Whether you're a home buyer or a wholesaler — we're just a call or WhatsApp away.</p>
-      </div>
-      <div class="contact-grid">
-        <!-- Info -->
-        <div class="contact-info reveal">
-          <div class="contact-items">
-            <div class="contact-item">
-              <span class="ci-icon">📞</span>
-              <div><strong>Phone</strong><a href="tel:+918123505794">+91 8123505794</a></div>
-            </div>
-            <div class="contact-item">
-              <span class="ci-icon">💬</span>
-              <div><strong>WhatsApp</strong><a href="https://wa.me/918123505794" target="_blank" rel="noopener">Chat to place an order</a></div>
-            </div>
-            <div class="contact-item">
-              <span class="ci-icon">📍</span>
-              <div><strong>Location</strong><span>~25 km from Vijayapura (Bijapur), Karnataka, India</span></div>
-            </div>
-            <div class="contact-item">
-              <span class="ci-icon">🕐</span>
-              <div><strong>Hours</strong><span>7:00 AM – 7:00 PM, All Days</span></div>
-            </div>
-          </div>
-          <div class="contact-ctas">
-            <a href="tel:+918123505794" class="btn btn-primary btn-lg">📞 Call Now</a>
-            <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27d%20like%20to%20place%20an%20order!" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              WhatsApp Order
-            </a>
-          </div>
-        </div>
-
-        <!-- Form -->
-        <div class="contact-form-box reveal">
-          <h3>Send an Inquiry</h3>
-          <form id="inquiryForm" novalidate>
-            <div class="form-group">
-              <label for="fname">Your Name</label>
-              <input type="text" id="fname" name="fname" placeholder="e.g. Ramesh Kumar" required />
-            </div>
-            <div class="form-group">
-              <label for="fphone">Phone / WhatsApp Number</label>
-              <input type="tel" id="fphone" name="fphone" placeholder="+91 98765 43210" required />
-            </div>
-            <div class="form-group">
-              <label for="ftype">Order Type</label>
-              <select id="ftype" name="ftype">
-                <option value="retail">Retail (Home / Personal)</option>
-                <option value="wholesale">Wholesale / Bulk Order</option>
-                <option value="export">Export Inquiry</option>
-                <option value="jackfruit">Jackfruit Inquiry</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="fmsg">Message / Requirements</label>
-              <textarea id="fmsg" name="fmsg" rows="4" placeholder="How many kg? Which product? Delivery location? Any other details..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-whatsapp btn-full btn-lg">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Send via WhatsApp
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <!-- Map -->
-      <div class="map-section reveal">
-        <h3>Find Us</h3>
-        <div class="map-wrap">
-          <iframe
-            src="https://maps.google.com/maps?q=Vijayapura+Karnataka+India&output=embed&z=11"
-            width="100%" height="360" style="border:0;" allowfullscreen loading="lazy"
-            title="Naveen Mangoes – Near Vijayapura, Karnataka">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FLOATING WHATSAPP ===== -->
-  <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27d%20like%20to%20place%20an%20order!" class="wa-float" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
-    <div class="wa-pulse"></div>
-    <svg viewBox="0 0 24 24" fill="white" width="30" height="30"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">🥭 Naveen <em style="color:var(--mango);font-style:italic;">Mangoes</em></div>
-        <p>Premium Thailand variety mangoes grown naturally near Vijayapura, Karnataka. Chemical-free, farm-fresh, available throughout the year.</p>
-        <div class="footer-social" style="margin-top:1.2rem;">
-          <a href="https://wa.me/918123505794" class="social-btn" target="_blank" rel="noopener">💬 WhatsApp Us</a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#why">Why Choose Us</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#organic">Our Farming</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact & Order</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Contact</h4>
-        <p>📞 <a href="tel:+918123505794">+91 8123505794</a></p>
-        <p>💬 <a href="https://wa.me/918123505794" target="_blank" rel="noopener">WhatsApp Order</a></p>
-        <p>📍 Near Vijayapura (Bijapur),<br />Karnataka, India</p>
-        <p style="margin-top:.8rem;">🕐 7 AM – 7 PM, All Days</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Naveen Mangoes. All rights reserved. | Premium Organic Thailand Mango Farm, Karnataka, India</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
+EOF
