@@ -1,6 +1,3 @@
-bash
-
-cat > /mnt/user-data/outputs/naveen-mangoes/script.js << 'JSEOF'
 // ===== NAV SCROLL EFFECT =====
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
