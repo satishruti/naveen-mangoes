@@ -63,25 +63,26 @@ p{color:var(--tm);line-height:1.75}
 .btn-cart:hover{background:var(--g2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,31,20,.25)}
 
 /* ====== TICKER BAR ====== */
-.ticker-bar{background:var(--g1);padding:.65rem 0;overflow:hidden;white-space:nowrap}
+.ticker-bar{background:var(--g1);height:40px;display:flex;align-items:center;overflow:hidden;white-space:nowrap;position:relative;z-index:1001}
 .ticker-track{display:inline-flex;gap:2.5rem;animation:tickMove 35s linear infinite;will-change:transform}
 .ticker-track span{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.72);letter-spacing:.03em}
 .ticker-track .tdot{color:var(--mg);font-size:.6rem}
 @keyframes tickMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ====== NAV ====== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;transition:all .3s}
-.nav.solid{background:rgba(250,247,240,.97);backdrop-filter:blur(16px);padding:.8rem 0;box-shadow:0 1px 20px rgba(0,0,0,.07)}
+.nav{position:fixed;top:40px;left:0;right:0;z-index:1000;padding:1.2rem 0;transition:top 0.3s ease, background 0.3s ease, padding 0.3s ease}
+.nav.solid{top:0;background:rgba(250,247,240,.97);backdrop-filter:blur(16px);padding:.8rem 0;box-shadow:0 1px 20px rgba(0,0,0,.07)}
 .nav-wrap{max-width:1160px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;gap:1.5rem}
-.logo{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:1.4rem;font-weight:700;color:#fff;transition:color .3s;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:1.4rem;font-weight:700;color:#fff;transition:color .3s;flex-shrink:0;position:relative;z-index:1002}
 .nav.solid .logo{color:var(--g0)}
+.nav.menu-active .logo{color:#fff !important}
 .logo-mark{font-size:1.5rem}
 .logo-name em{color:var(--mg);font-style:italic}
 .nav-menu{display:flex;align-items:center;gap:1.8rem;margin-left:auto}
 .nav-menu a{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.88);transition:color .2s}
 .nav.solid .nav-menu a{color:var(--tm)}
 .nav-menu a:hover{color:var(--mg)}
-.nav-right{display:flex;align-items:center;gap:.8rem;margin-left:1.5rem}
+.nav-right{display:flex;align-items:center;gap:.8rem;margin-left:1.5rem;position:relative;z-index:1002}
 .nav-order{padding:.55rem 1.4rem;background:var(--wa);color:#fff;border-radius:50px;font-weight:600;font-size:.85rem;transition:all .2s;white-space:nowrap}
 .nav-order:hover{background:var(--wa2);transform:scale(1.03)}
 .cart-nav-btn{position:relative;background:rgba(255,255,255,.12);border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;transition:all .2s;flex-shrink:0}
@@ -91,8 +92,12 @@ p{color:var(--tm);line-height:1.75}
 .cart-badge.pulse{animation:badgePulse .4s ease}
 @keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.4rem}
-.burger span{display:block;width:24px;height:2px;border-radius:2px;background:#fff;transition:background .3s}
+.burger span{display:block;width:24px;height:2px;border-radius:2px;background:#fff;transition:transform .3s, opacity .3s, background .3s}
 .nav.solid .burger span{background:var(--g0)}
+.nav.menu-active .burger span{background:#fff !important}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:#fff !important}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:#fff !important}
 
 /* ====== HERO ====== */
 .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -358,6 +363,7 @@ p{color:var(--tm);line-height:1.75}
 @media(max-width:1020px){
   .bento-grid{grid-template-columns:1fr 1fr}
   .bento-hero-card{grid-column:span 2;grid-row:span 1}
+  .bento-mango{grid-column:span 2}
   .about-grid,.farming-grid,.facility-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
   .product-showcase{grid-template-columns:1fr}
   .product-visual{min-height:300px}
@@ -367,12 +373,13 @@ p{color:var(--tm);line-height:1.75}
   .video-row{grid-template-columns:1fr 1fr}
   .footer-wrap{grid-template-columns:1fr;gap:2rem}
   .wholesale-cta{flex-direction:column;text-align:center;padding:2rem}
-  .nav-menu{display:none;flex-direction:column;position:fixed;inset:0;background:var(--g0);padding:5rem 2rem 2rem;gap:1.5rem;z-index:1001;align-items:flex-start}
+  .nav-menu{display:none;flex-direction:column;position:fixed;inset:0;background:var(--g0);padding:7rem 2rem 2rem;gap:1.5rem;z-index:999;align-items:flex-start}
   .nav-menu.open{display:flex}
   .nav-menu a{color:#fff !important;font-size:1.1rem}
   .burger{display:flex}
   .about-img-main{height:400px}
-  .about-chip-b{bottom:auto;top:5rem;right:-1rem}
+  .about-chip{right:0}
+  .about-chip-b{bottom:auto;top:5rem;right:0}
   .farming-visual img{height:380px}
   .facility-visual img{height:320px}
 }
@@ -380,7 +387,7 @@ p{color:var(--tm);line-height:1.75}
   .section{padding:5rem 0}
   h1{font-size:2.8rem}h2{font-size:2rem}
   .bento-grid{grid-template-columns:1fr}
-  .bento-hero-card{grid-column:span 1}
+  .bento-hero-card,.bento-mango{grid-column:span 1}
   .press-grid,.testi-row{grid-template-columns:1fr}
   .masonry{grid-template-columns:1fr}
   .video-row{grid-template-columns:1fr}
@@ -395,9 +402,17 @@ p{color:var(--tm);line-height:1.75}
   .cart-drawer{width:100vw}
   .nav-right .nav-order{display:none}
   .masonry{grid-template-rows:unset}
+  .map-box iframe{height:240px !important}
 }
-CSSEOF
-
-CSS done: 398 lines
-
-Write complete script.js with full ca
+@media(max-height:700px){
+  .cart-footer{padding:1rem 1.2rem}
+  .upi-section{margin-bottom:.8rem}
+  .upi-header{margin-bottom:.6rem;padding-bottom:.5rem}
+  .upi-icon{width:36px;height:36px;font-size:1.2rem}
+  .upi-id-row{padding:.5rem .8rem;margin-bottom:.5rem}
+  .upi-apps{display:none}
+  .upi-amount-box{padding:.5rem .8rem;margin-bottom:.5rem}
+  .upi-amount-box strong{font-size:1.2rem}
+  .upi-note{display:none}
+  .btn-upi-pay{margin-top:.4rem;padding:.8rem 1.5rem}
+}

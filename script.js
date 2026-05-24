@@ -22,23 +22,37 @@ window.addEventListener('scroll', () => {
 // ===== HAMBURGER =====
 const burger = document.getElementById('burger');
 const navMenu = document.getElementById('navMenu');
-burger && burger.addEventListener('click', () => {
-  navMenu.classList.toggle('open');
-});
+
+function toggleMenu(isOpen) {
+  if (isOpen === undefined) isOpen = !navMenu.classList.contains('open');
+  navMenu && navMenu.classList.toggle('open', isOpen);
+  burger && burger.classList.toggle('open', isOpen);
+  nav && nav.classList.toggle('menu-active', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+burger && burger.addEventListener('click', () => toggleMenu());
 navMenu && navMenu.querySelectorAll('a').forEach(a =>
-  a.addEventListener('click', () => navMenu.classList.remove('open'))
+  a.addEventListener('click', () => toggleMenu(false))
 );
 document.addEventListener('click', e => {
-  if (nav && !nav.contains(e.target)) navMenu && navMenu.classList.remove('open');
+  if (nav && !nav.contains(e.target)) toggleMenu(false);
 });
 
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) {
-      e.preventDefault();
-      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    try {
+      const t = document.querySelector(href);
+      if (t) {
+        e.preventDefault();
+        toggleMenu(false);
+        window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      }
+    } catch (err) {
+      console.error(err);
     }
   });
 });
@@ -52,7 +66,7 @@ const revealObs = new IntersectionObserver(entries => {
     setTimeout(() => en.target.classList.add('visible'), delay);
     revealObs.unobserve(en.target);
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.02, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 // ===== TICKER DUPLICATE =====
@@ -295,5 +309,4 @@ function tryPlayVideo(src, title) {
 // ===== INIT =====
 updateProductQty(1);
 updateCartUI();
-JSEOF
 
