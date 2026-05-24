@@ -1,311 +1,577 @@
-# First, add the shop section + UPI section + cart drawer before <!-- FLOATING WA -->
-python3 << 'PYEOF'
-with open('/home/claude/naveen-mangoes/index.html', 'r') as f:
-    html = f.read()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naveen Mangoes — Premium Thailand Mangoes | Vijayapura, Karnataka</title>
+  <meta name="description" content="Naveen Mangoes — Premium Thailand variety mangoes on NH-50, Vijayapura 586127, Karnataka. 100% chemical-free, naturally ripened. Retail & wholesale. Call 8123505794." />
+  <meta name="keywords" content="thailand mango Vijayapura, Naveen Mango Thailand, organic mango Karnataka, naturally ripened mango Bijapur, premium mango farm NH50, wholesale mango Karnataka" />
+  <link rel="canonical" href="https://naveenmangoes.in/" />
+  <meta property="og:title" content="Naveen Mangoes — Premium Thailand Mangoes, Vijayapura" />
+  <meta property="og:description" content="Farm-fresh Thailand mangoes. No chemicals. Year-round. NH-50, Vijayapura 586127." />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Naveen Mango Thailand","telephone":"+918123505794","address":{"@type":"PostalAddress","streetAddress":"NH-50, Gulbarga Bijapur Highway","addressLocality":"Vijayapura","postalCode":"586127","addressRegion":"Karnataka","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":16.79,"longitude":75.92},"openingHours":"Mo-Su 07:00-19:00"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-SHOP_SECTION = '''
-<!-- ====== SHOP / ORDER SECTION ====== -->
-<section class="section shop" id="shop">
-  <div class="wrap">
-    <div class="section-head reveal" style="text-align:center;">
-      <div class="kicker">Order Online</div>
-      <h2>Buy Direct from<br /><em>Our Farm</em></h2>
-      <p class="section-sub">Simple, fast, and transparent. Pay via UPI — we confirm your order on WhatsApp.</p>
-    </div>
-
-    <div class="shop-grid">
-      <!-- Product Card -->
-      <div class="shop-card reveal">
-        <div class="shop-img">
-          <img src="Images/mango.png" alt="Thailand Mango Box — 12 pieces"
-            onerror="this.src='https://images.unsplash.com/photo-1601878583959-e0f35c40f12c?w=600&q=85'" />
-          <span class="shop-badge">⭐ Best Seller</span>
-        </div>
-        <div class="shop-body">
-          <h3>Thailand Mango Box</h3>
-          <p class="shop-desc">Premium Thailand variety — 12 naturally ripened mangoes, hand-picked and farm-packed.</p>
-          <div class="shop-meta">
-            <span>🥭 12 pieces per box</span>
-            <span>🌿 Zero chemicals</span>
-            <span>🌞 Tree-ripened</span>
-            <span>📦 Farm-packed</span>
-          </div>
-          <div class="shop-price-row">
-            <div class="shop-price">
-              <span class="price-amt">₹1,400</span>
-              <span class="price-per">per box (12 pcs)</span>
-            </div>
-            <div class="qty-control">
-              <button class="qty-btn" id="qtyMinus" aria-label="Decrease">−</button>
-              <span class="qty-val" id="qtyVal">1</span>
-              <button class="qty-btn" id="qtyPlus" aria-label="Increase">+</button>
-            </div>
-          </div>
-          <div class="shop-total-row">
-            <span>Total:</span>
-            <strong id="shopTotal">₹1,400</strong>
-          </div>
-          <button class="btn-add-cart" id="addToCart">
-            🛒 Add to Cart
-          </button>
-        </div>
-      </div>
-
-      <!-- How It Works -->
-      <div class="how-it-works reveal">
-        <h3>How to Order</h3>
-        <div class="hiw-steps">
-          <div class="hiw-step">
-            <div class="hiw-num">1</div>
-            <div>
-              <h4>Select Quantity</h4>
-              <p>Choose how many boxes (12 mangoes each) you want.</p>
-            </div>
-          </div>
-          <div class="hiw-step">
-            <div class="hiw-num">2</div>
-            <div>
-              <h4>Add to Cart & Pay via UPI</h4>
-              <p>Pay instantly using PhonePe, GPay, Paytm, or any UPI app — scan our QR code.</p>
-            </div>
-          </div>
-          <div class="hiw-step">
-            <div class="hiw-num">3</div>
-            <div>
-              <h4>WhatsApp Confirmation</h4>
-              <p>Send payment screenshot on WhatsApp. We confirm dispatch within 2 hours.</p>
-            </div>
-          </div>
-          <div class="hiw-step">
-            <div class="hiw-num">4</div>
-            <div>
-              <h4>Fresh Delivery</h4>
-              <p>Farm-fresh mangoes dispatched same day from NH-50, Vijayapura 586127.</p>
-            </div>
-          </div>
-        </div>
-        <div class="upi-logos">
-          <span>Pay via:</span>
-          <div class="upi-icons">
-            <span class="upi-icon">📱 PhonePe</span>
-            <span class="upi-icon">🟢 GPay</span>
-            <span class="upi-icon">🔵 Paytm</span>
-            <span class="upi-icon">🟠 BHIM</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== UPI PAYMENT SECTION ====== -->
-<section class="section upi-section" id="pay">
-  <div class="wrap">
-    <div class="section-head reveal" style="text-align:center;">
-      <div class="kicker">Pay via UPI</div>
-      <h2>Instant & Secure<br /><em>UPI Payment</em></h2>
-      <p class="section-sub">Scan the QR code with any UPI app. Zero transaction fees. 100% secure.</p>
-    </div>
-    <div class="upi-grid reveal">
-      <!-- QR Box -->
-      <div class="upi-qr-box">
-        <div class="qr-label">Scan to Pay</div>
-        <div class="qr-frame">
-          <!-- Generate QR using public API - no backend needed -->
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi://pay?pa=8123505794@ybl&pn=NaveenMangoes&am=1400&cu=INR&tn=ThailandMangoBox"
-            alt="UPI QR Code — Naveen Mangoes"
-            width="240" height="240"
-            onerror="this.style.display='none';document.getElementById('qrFallback').style.display='block'" />
-          <div id="qrFallback" style="display:none;text-align:center;padding:2rem;">
-            <div style="font-size:3rem;margin-bottom:1rem;">📱</div>
-            <p style="color:var(--tm);font-size:.9rem;">Scan QR or use UPI ID below</p>
-          </div>
-        </div>
-        <div class="qr-upi-id">
-          <span>UPI ID:</span>
-          <strong id="upiIdText">8123505794@ybl</strong>
-          <button class="copy-btn" id="copyUpi" title="Copy UPI ID">📋 Copy</button>
-        </div>
-        <div class="qr-apps">
-          <div class="qr-app">📱<span>PhonePe</span></div>
-          <div class="qr-app">🟢<span>GPay</span></div>
-          <div class="qr-app">🔵<span>Paytm</span></div>
-          <div class="qr-app">🟠<span>BHIM</span></div>
-          <div class="qr-app">🏦<span>Any UPI</span></div>
-        </div>
-      </div>
-
-      <!-- After Payment Steps -->
-      <div class="upi-after">
-        <h3>After Payment — 3 Easy Steps</h3>
-        <div class="after-steps">
-          <div class="after-step">
-            <div class="after-icon">📸</div>
-            <div>
-              <h4>Screenshot the Payment</h4>
-              <p>Take a screenshot of the successful payment confirmation from your UPI app.</p>
-            </div>
-          </div>
-          <div class="after-step">
-            <div class="after-icon">💬</div>
-            <div>
-              <h4>WhatsApp Us the Screenshot</h4>
-              <p>Send the screenshot + your delivery address to <strong>+91 8123505794</strong> on WhatsApp.</p>
-              <a href="https://wa.me/918123505794?text=Hi%20Naveen%20Mangoes!%20I%20have%20made%20the%20UPI%20payment.%20Sending%20screenshot%20and%20my%20address%20for%20delivery." class="after-wa-btn" target="_blank" rel="noopener">
-                Open WhatsApp →
-              </a>
-            </div>
-          </div>
-          <div class="after-step">
-            <div class="after-icon">✅</div>
-            <div>
-              <h4>Order Confirmed!</h4>
-              <p>We confirm your order within 2 hours and dispatch same day from our NH-50 farm.</p>
-            </div>
-          </div>
-        </div>
-        <div class="trust-badges">
-          <div class="trust-badge"><span>🔒</span><p>100% Secure UPI</p></div>
-          <div class="trust-badge"><span>⚡</span><p>Instant Payment</p></div>
-          <div class="trust-badge"><span>🚚</span><p>Same Day Dispatch</p></div>
-          <div class="trust-badge"><span>📞</span><p>WhatsApp Support</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== MEDIA VIDEO SECTION ====== -->
-<section class="section media-section" id="media">
-  <div class="wrap">
-    <div class="section-head reveal" style="text-align:center;">
-      <div class="kicker kicker--light">Media Coverage</div>
-      <h2 style="color:#fff;">As Seen on<br /><em>News Channel</em></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.6);">Naveen Mango Thailand featured on Kannada news — pioneering Thailand mango cultivation in Vijayapura.</p>
-    </div>
-    <div class="media-grid reveal">
-      <!-- Add your YouTube embed URL below. Replace VIDEO_ID with your actual YouTube video ID -->
-      <div class="media-video-wrap">
-        <div class="video-embed-placeholder" id="newsVideoPlaceholder">
-          <div class="vep-inner">
-            <div class="vep-play" id="newsVideoPlay">
-              <svg viewBox="0 0 24 24" fill="white" width="40" height="40"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <div class="vep-text">
-              <h4>📺 Kannada News Channel Feature</h4>
-              <p>Click to watch — Naveen Mango Thailand on local news</p>
-              <small>⚠️ Share your YouTube/video link to embed here</small>
-            </div>
-            <!-- INSTRUCTIONS: Replace this src with your YouTube embed URL like:
-                 src="https://www.youtube.com/embed/YOUR_VIDEO_ID" -->
-            <iframe
-              id="newsVideoFrame"
-              style="display:none;width:100%;height:100%;position:absolute;inset:0;border:0;border-radius:16px;"
-              allowfullscreen
-              title="Naveen Mango Thailand — Kannada News Feature">
-            </iframe>
-          </div>
-        </div>
-      </div>
-      <!-- Press cards alongside -->
-      <div class="media-side">
-        <div class="media-press-card">
-          <img src="Images/awards.png" alt="Kannada news coverage Naveen Mangoes"
-            onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80'" loading="lazy" />
-          <div class="mpc-body">
-            <span>📰</span>
-            <h4>Kannada Newspaper</h4>
-            <p>"ಥೈಲ್ಯಾಂಡ್, ಜಪಾನ್ ತಳಿ ಭಜರಿ ಇಳುವರಿ" — Full feature coverage on Thailand mango success.</p>
-          </div>
-        </div>
-        <div class="media-press-card media-press-card--accent">
-          <img src="Images/awards.png" alt="Government recognition Naveen Mangoes"
-            onerror="this.src='https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80'" loading="lazy" />
-          <div class="mpc-body">
-            <span>🏛️</span>
-            <h4>Government Recognition</h4>
-            <p>Officially recognised by Vijayapura district officials for pioneering Thailand mango farming.</p>
-          </div>
-        </div>
-        <div class="media-share-box">
-          <p>📺 Have a news video link? Share it with us!</p>
-          <a href="https://wa.me/918123505794?text=Hi%20Naveen%20Mangoes%2C%20sharing%20the%20news%20video%20link%20for%20the%20website!" class="after-wa-btn" target="_blank" rel="noopener">Share Video Link →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== CART DRAWER ====== -->
-<div class="cart-overlay" id="cartOverlay"></div>
-<div class="cart-drawer" id="cartDrawer">
-  <div class="cart-header">
-    <h3>🛒 Your Cart</h3>
-    <button class="cart-close" id="cartClose">✕</button>
-  </div>
-  <div class="cart-body" id="cartBody">
-    <div class="cart-empty" id="cartEmpty">
-      <span>🥭</span>
-      <p>Your cart is empty</p>
-      <small>Add a box of Thailand Mangoes to get started!</small>
-    </div>
-    <div class="cart-items" id="cartItems" style="display:none;">
-      <div class="cart-item">
-        <div class="cart-item-img">
-          <img src="Images/mango.png" alt="Thailand Mango Box"
-            onerror="this.src='https://images.unsplash.com/photo-1601878583959-e0f35c40f12c?w=120&q=80'" />
-        </div>
-        <div class="cart-item-info">
-          <h4>Thailand Mango Box</h4>
-          <p>12 pieces · ₹1,400 per box</p>
-          <div class="cart-qty">
-            <button class="cq-btn" id="cartMinus">−</button>
-            <span id="cartQty">1</span>
-            <button class="cq-btn" id="cartPlus">+</button>
-          </div>
-        </div>
-        <div class="cart-item-price" id="cartItemPrice">₹1,400</div>
-      </div>
-    </div>
-  </div>
-  <div class="cart-footer" id="cartFooter" style="display:none;">
-    <div class="cart-summary">
-      <div class="cs-row"><span>Subtotal (<span id="cartBoxCount">1</span> box)</span><strong id="cartSubtotal">₹1,400</strong></div>
-      <div class="cs-row cs-row--total"><span>Total</span><strong id="cartGrandTotal">₹1,400</strong></div>
-    </div>
-    <button class="cart-pay-btn" id="cartPayBtn">
-      📱 Pay via UPI — ₹<span id="cartPayAmt">1400</span>
-    </button>
-    <a class="cart-wa-btn" id="cartWaBtn" href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Order via WhatsApp Instead
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-wrap">
+    <a href="#" class="logo">
+      <span class="logo-mark">🥭</span>
+      <span class="logo-name">Naveen <em>Mangoes</em></span>
     </a>
-    <p class="cart-note">💡 After UPI payment, send screenshot to WhatsApp for order confirmation.</p>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#farming">Farming</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#contact" class="nav-order">Order Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO — full bleed, single image, massive type -->
+<section class="hero" id="hero">
+  <div class="hero-img-wrap">
+    <img src="Images/mango.png"
+      alt="Premium Thailand Mangoes — Naveen Farm, Vijayapura"
+      class="hero-img"
+      onerror="this.src='https://images.unsplash.com/photo-1553279768-865429fa0078?w=1800&q=90'" />
+    <div class="hero-veil"></div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-tag">NH-50 · Vijayapura 586127 · Zero Chemicals · Year-Round</div>
+    <h1>The World's Finest<br /><em>Thailand Mango</em><br />Grown in Karnataka</h1>
+    <p>Tree-ripened. Farm-direct. No shortcuts.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-fill">Order Now</a>
+      <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes!" class="btn-wa" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<!-- STATS TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🥭 Thailand Variety</span>
+    <span class="dot">·</span>
+    <span>🚫 Zero Chemicals</span>
+    <span class="dot">·</span>
+    <span>📅 Available 365 Days</span>
+    <span class="dot">·</span>
+    <span>💧 Drip Irrigated Farm</span>
+    <span class="dot">·</span>
+    <span>📍 NH-50, Vijayapura 586127</span>
+    <span class="dot">·</span>
+    <span>🌿 Tree-Ripened</span>
+    <span class="dot">·</span>
+    <span>🚚 Retail & Wholesale</span>
+    <span class="dot">·</span>
+    <span>🏛️ Govt. Recognised</span>
+    <span class="dot">·</span>
   </div>
 </div>
 
-<!-- CART ICON in NAV (injected via JS) -->
-'''
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-left reveal">
+        <div class="kicker">Our Story</div>
+        <h2>From Thailand's Orchards<br /><em>to Karnataka's Soil</em></h2>
+        <p>Naveen Mangoes is a pioneering farm on <strong>NH-50, Gulbarga–Bijapur Highway, Vijayapura 586127</strong>. We grow the world's most prized Thailand variety mango in Indian soil — completely naturally.</p>
+        <p>Featured in Kannada media. Recognised by Vijayapura government officials. One of the first farms in this region to commercially cultivate Thailand mangoes at scale with year-round production.</p>
+        <p>Every mango is tree-ripened — no calcium carbide, no ethylene gas. Just Karnataka sun, drip irrigation, and obsessive care for quality.</p>
+        <div class="tags">
+          <span>🥭 Thailand Variety</span>
+          <span>💧 Drip Irrigated</span>
+          <span>📰 Media Featured</span>
+          <span>🏛️ Govt. Recognised</span>
+          <span>📍 Vijayapura 586127</span>
+          <span>🚚 Retail & Wholesale</span>
+        </div>
+        <a href="https://wa.me/918123505794" class="btn-fill" target="_blank" rel="noopener" style="margin-top:2rem;display:inline-flex;align-items:center;gap:.5rem;">Talk to Us</a>
+      </div>
+      <div class="about-right reveal">
+        <div class="about-img-main">
+          <img src="Images/farmer-photo.png"
+            alt="Naveen — Founder, Naveen Mango Thailand, Vijayapura"
+            onerror="this.src='https://images.unsplash.com/photo-1599940778173-e276d4acb2bb?w=700&q=85'" />
+        </div>
+        <div class="about-img-float">
+          <img src="Images/mango.png"
+            alt="Thailand Mangoes — Naveen Farm"
+            onerror="this.src='https://images.unsplash.com/photo-1601878583959-e0f35c40f12c?w=400&q=85'" />
+        </div>
+        <div class="about-chip">
+          <span>📰</span>
+          <div><strong>Media Featured</strong><small>Kannada Press & Govt.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-CART_NAV_BTN = '''<button class="cart-nav-btn" id="cartNavBtn" aria-label="Cart">
-      🛒 <span class="cart-count" id="cartCount" style="display:none;">0</span>
-    </button>
-    '''
+<!-- MARQUEE DIVIDER -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>Premium Thailand Mango</span><span class="mx">✦</span>
+    <span>Zero Chemicals</span><span class="mx">✦</span>
+    <span>Tree-Ripened</span><span class="mx">✦</span>
+    <span>Farm to Table</span><span class="mx">✦</span>
+    <span>Vijayapura 586127</span><span class="mx">✦</span>
+    <span>Retail & Wholesale</span><span class="mx">✦</span>
+    <span>Premium Thailand Mango</span><span class="mx">✦</span>
+    <span>Zero Chemicals</span><span class="mx">✦</span>
+    <span>Tree-Ripened</span><span class="mx">✦</span>
+    <span>Farm to Table</span><span class="mx">✦</span>
+    <span>Vijayapura 586127</span><span class="mx">✦</span>
+    <span>Retail & Wholesale</span><span class="mx">✦</span>
+  </div>
+</div>
 
-# Insert shop+upi+media+cart before floating WA
-html = html.replace('<!-- FLOATING WA -->', SHOP_SECTION + '\n<!-- FLOATING WA -->')
+<!-- WHY US -->
+<section class="section why" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Why Naveen Mangoes</div>
+      <h2>The Difference You<br />Can <em>Taste</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <div class="why-icon">🚫</div>
+        <h3>Zero Chemicals</h3>
+        <p>No pesticides, no artificial ripening agents — ever. What nature grew is what you eat.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">02</div>
+        <div class="why-icon">🌞</div>
+        <h3>Tree-Ripened</h3>
+        <p>Every mango stays on the tree until it naturally signals readiness — full sugar, full aroma, full flavour.</p>
+      </div>
+      <div class="why-card why-card--accent reveal">
+        <div class="why-num">03</div>
+        <div class="why-icon">🥭</div>
+        <h3>Exotic Thailand Variety</h3>
+        <p>Fibre-free flesh, intense sweetness, golden colour — the prized Thai mango grown in Karnataka's black cotton soil.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">04</div>
+        <div class="why-icon">📅</div>
+        <h3>Year-Round Supply</h3>
+        <p>Unlike seasonal Indian varieties, our Thailand mangoes fruit 365 days — ideal for retail and wholesale buyers.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">05</div>
+        <div class="why-icon">💧</div>
+        <h3>Drip Irrigated</h3>
+        <p>Precision drip lines deliver the right water to every tree — conserving resources while maximising sweetness.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">06</div>
+        <div class="why-icon">🚚</div>
+        <h3>Farm Direct, NH-50</h3>
+        <p>No middlemen. Our farm sits on NH-50 — perfect highway access for same-day dispatch nationwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-# Insert cart nav button before </ul> in nav-menu
-html = html.replace('<li><a href="#contact" class="nav-order">Order Now</a></li>\n    </ul>',
-                    '<li><a href="#contact" class="nav-order">Order Now</a></li>\n    </ul>\n    ' + CART_NAV_BTN)
+<!-- PRODUCTS -->
+<section class="section products" id="products">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Our Products</div>
+      <h2>Premium Thailand<br /><em>Mangoes</em></h2>
+      <p class="section-sub">Available for home buyers, retailers, hotels, restaurants and exporters — year-round.</p>
+    </div>
 
-# Update nav to add shop + pay + media links
-html = html.replace('<li><a href="#gallery">Gallery</a></li>',
-                    '<li><a href="#gallery">Gallery</a></li>\n      <li><a href="#shop">Shop</a></li>\n      <li><a href="#media">Media</a></li>')
+    <div class="product-showcase reveal">
+      <div class="product-visual">
+        <img src="Images/mango.png"
+          alt="Premium Thailand Mango — Naveen Farm, Vijayapura 586127"
+          onerror="this.src='https://images.unsplash.com/photo-1601878583959-e0f35c40f12c?w=900&q=90'" />
+        <div class="product-tag-tl">⭐ Star Product</div>
+        <div class="product-tag-br">
+          <span>🌿 Zero Chemicals</span>
+          <span>📅 Year-Round</span>
+          <span>🌞 Tree-Ripened</span>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name-row">
+          <h3>Thailand Mango</h3>
+          <span class="product-local">ಥೈಲ್ಯಾಂಡ್ ಮಾವು</span>
+        </div>
+        <p class="product-desc">The crown jewel of our farm. Fibre-free, intensely sweet, golden-fleshed, naturally tree-ripened. Available throughout the year from our farm on NH-50, Vijayapura 586127.</p>
+        <ul class="product-checks">
+          <li><span>✓</span> Naturally tree-ripened — zero calcium carbide</li>
+          <li><span>✓</span> Zero chemicals, no wax coating</li>
+          <li><span>✓</span> Fibre-free, intensely sweet flesh</li>
+          <li><span>✓</span> Available 365 days a year</li>
+          <li><span>✓</span> Farm-packed, same-day dispatch</li>
+          <li><span>✓</span> Drip-irrigated, sustainable farm</li>
+        </ul>
+        <div class="price-row">
+          <div class="price-box">
+            <strong>🏠 Retail</strong>
+            <span>Home / personal orders<br />Call for current price</span>
+          </div>
+          <div class="price-box price-box--b">
+            <strong>🏭 Wholesale</strong>
+            <span>Hotels, restaurants, exporters<br />Bulk rates available</span>
+          </div>
+        </div>
+        <div class="product-btns">
+          <a href="https://wa.me/918123505794?text=Hi%20Naveen%20Mangoes%2C%20I%27d%20like%20to%20order%20Thailand%20Mangoes!" class="btn-wa-lg" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Order on WhatsApp
+          </a>
+          <a href="tel:+918123505794" class="btn-outline-lg">📞 Call Now</a>
+        </div>
+      </div>
+    </div>
 
-with open('/home/claude/naveen-mangoes/index.html', 'w') as f:
-    f.write(html)
+    <div class="wholesale-cta reveal">
+      <div>
+        <h3>Wholesale & Bulk Orders</h3>
+        <p>Hotels · Restaurants · Retailers · Supermarkets · Exporters — competitive rates, year-round supply from NH-50.</p>
+      </div>
+      <a href="tel:+918123505794" class="btn-fill-dark">📞 8123505794</a>
+    </div>
+  </div>
+</section>
 
-print("HTML updated successfully, length:", len(html))
-PYEOF
+<!-- FARMING -->
+<section class="section farming dark-section" id="farming">
+  <div class="wrap">
+    <div class="farming-grid">
+      <div class="farming-visual reveal">
+        <img src="Images/farmer-photo.png"
+          alt="Naveen with mango trees — drip irrigation Vijayapura"
+          onerror="this.src='https://images.unsplash.com/photo-1599940778173-e276d4acb2bb?w=700&q=85'" />
+        <div class="farming-chip">
+          <span>💧</span>
+          <div><strong>Drip Irrigated</strong><small>Precision water system</small></div>
+        </div>
+      </div>
+      <div class="farming-content reveal">
+        <div class="kicker kicker--light">Our Farming</div>
+        <h2 style="color:#fff;">How We Grow<br /><em>the Perfect Mango</em></h2>
+        <p style="color:rgba(255,255,255,.72);margin:1.2rem 0 2rem;">At Naveen Mangoes every decision starts with one principle: let nature lead. Our farm uses modern drip irrigation in service of pure, chemical-free growing.</p>
+        <div class="farming-steps">
+          <div class="step">
+            <div class="step-n">01</div>
+            <div><h4>Drip Irrigation System</h4><p>Precision drip lines to every tree root — conserving water while building sweeter, denser fruit.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-n">02</div>
+            <div><h4>Tree-Ripening Only</h4><p>Zero calcium carbide. Zero ethylene. Every fruit waits on the tree until it naturally ripens.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-n">03</div>
+            <div><h4>Natural Soil Care</h4><p>Vijayapura's black cotton soil + organic composts — no synthetic fertilisers that harm taste.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-n">04</div>
+            <div><h4>Hand-Picked & Packed</h4><p>Every mango hand-selected, carefully packed at our NH-50 facility, dispatched same-day.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITY FEATURE -->
+<section class="section facility" id="facility">
+  <div class="wrap">
+    <div class="facility-grid">
+      <div class="facility-content reveal">
+        <div class="kicker">Our Facility</div>
+        <h2>Where Quality<br /><em>Gets Packed</em></h2>
+        <p>Our processing and packing facility on NH-50 ensures every mango meets the highest standards before it reaches you. Clean, hygienic, and built for both retail and bulk wholesale.</p>
+        <ul class="facility-list">
+          <li><span>✓</span> Hygienic sorting & grading</li>
+          <li><span>✓</span> Premium retail box packing</li>
+          <li><span>✓</span> Bulk packing for wholesale & export</li>
+          <li><span>✓</span> Same-day dispatch from farm</li>
+          <li><span>✓</span> Direct NH-50 highway access</li>
+        </ul>
+        <a href="#contact" class="btn-fill" style="margin-top:1.8rem;display:inline-block;">Visit Our Farm</a>
+      </div>
+      <div class="facility-visual reveal">
+        <img src="Images/building.jpeg"
+          alt="Naveen Mangoes processing facility — NH-50, Vijayapura 586127"
+          onerror="this.src='https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&q=85'" />
+        <div class="facility-chip">
+          <span>🏭</span>
+          <div><strong>Processing Unit</strong><small>NH-50, Vijayapura</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY — masonry style, all real images -->
+<section class="section gallery dark-section" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;">
+      <div class="kicker kicker--light">Gallery</div>
+      <h2 style="color:#fff;">Moments from<br /><em>Our Farm</em></h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.6);">Real photos from Naveen Mango Thailand — featured in Kannada media and recognised by Vijayapura officials.</p>
+    </div>
+
+    <div class="masonry reveal">
+      <div class="m-item m-tall">
+        <img src="Images/farmer-photo.png" alt="Naveen at Thailand Mango farm Vijayapura"
+          onerror="this.src='https://images.unsplash.com/photo-1599940778173-e276d4acb2bb?w=600&q=85'" loading="lazy" />
+        <div class="m-caption">Our Farmer — Naveen</div>
+      </div>
+      <div class="m-item">
+        <img src="Images/mango.png" alt="Thailand Mango trees Vijayapura farm"
+          onerror="this.src='https://images.unsplash.com/photo-1601878583959-e0f35c40f12c?w=600&q=85'" loading="lazy" />
+        <div class="m-caption">Thailand Mango Trees</div>
+      </div>
+      <div class="m-item">
+        <img src="Images/awards.png" alt="Government recognition — Naveen Mangoes Vijayapura"
+          onerror="this.src='https://images.unsplash.com/photo-1527030280862-64139fba04ca?w=600&q=85'" loading="lazy" />
+        <div class="m-caption">Government Recognition</div>
+      </div>
+      <div class="m-item m-wide">
+        <img src="Images/building.jpeg" alt="Naveen Mangoes facility — NH-50 Vijayapura"
+          onerror="this.src='https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=900&q=85'" loading="lazy" />
+        <div class="m-caption">Our Farm Facility — NH-50</div>
+      </div>
+      <div class="m-item">
+        <img src="Images/awards.png" alt="Media coverage — Naveen Mangoes"
+          onerror="this.src='https://images.unsplash.com/photo-1582979512210-99b6a53386f9?w=600&q=85'" loading="lazy" />
+        <div class="m-caption">Kannada Press Feature</div>
+      </div>
+    </div>
+
+    <p class="gallery-note">📸 All photos from our actual Vijayapura farm. Share your videos and we'll add them here.</p>
+
+    <!-- Video placeholders -->
+    <div class="video-row reveal">
+      <div class="v-card">
+        <div class="v-play">▶</div>
+        <p>Harvest Reel</p>
+        <small>Coming soon</small>
+      </div>
+      <div class="v-card">
+        <div class="v-play">▶</div>
+        <p>Farm Walk</p>
+        <small>Coming soon</small>
+      </div>
+      <div class="v-card">
+        <div class="v-play">▶</div>
+        <p>Mango Cut Open</p>
+        <small>Coming soon</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="section press" id="press">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;">
+      <div class="kicker">In The News</div>
+      <h2>Media & <em>Recognition</em></h2>
+      <p class="section-sub">Featured in Kannada newspapers. Recognised by Vijayapura district officials.</p>
+    </div>
+    <div class="press-grid">
+      <div class="press-card reveal">
+        <div class="press-img">
+          <img src="Images/awards.png" alt="Kannada newspaper coverage — Naveen Mangoes"
+            onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80'" loading="lazy" />
+        </div>
+        <div class="press-body">
+          <span class="press-icon">📰</span>
+          <h4>Kannada Newspaper Feature</h4>
+          <p>"ಥೈಲ್ಯಾಂಡ್, ಜಪಾನ್ ತಳಿ ಭಜರಿ ಇಳುವರಿ" — Full coverage on Thailand mango success in Vijayapura, Karnataka.</p>
+        </div>
+      </div>
+      <div class="press-card press-card--accent reveal">
+        <div class="press-img">
+          <img src="Images/awards.png" alt="Government recognition — Naveen Mangoes Vijayapura"
+            onerror="this.src='https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80'" loading="lazy" />
+        </div>
+        <div class="press-body">
+          <span class="press-icon">🏛️</span>
+          <h4>Government Recognition</h4>
+          <p>Officially presented to Vijayapura district government officials — recognising our landmark contribution to regional agriculture.</p>
+        </div>
+      </div>
+      <div class="press-card reveal">
+        <div class="press-img">
+          <img src="Images/farmer-photo.png" alt="Pioneer farmer — Naveen Mango Thailand Vijayapura"
+            onerror="this.src='https://images.unsplash.com/photo-1599940778173-e276d4acb2bb?w=400&q=80'" loading="lazy" />
+        </div>
+        <div class="press-body">
+          <span class="press-icon">🌾</span>
+          <h4>Pioneer Farmer</h4>
+          <p>First farm in the Vijayapura–Bijapur region to commercially cultivate Thailand mangoes at scale with year-round production.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;">
+      <div class="kicker">Customer Love</div>
+      <h2>What People<br /><em>Are Saying</em></h2>
+    </div>
+    <div class="testi-row">
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"The Thailand mangoes from Naveen Mangoes are unbelievably sweet. You can immediately tell they haven't been chemically ripened — the aroma alone tells you everything."</p>
+        <div class="testi-who"><div class="testi-av">P</div><div><strong>Priya S.</strong><small>Bangalore, Retail</small></div></div>
+      </div>
+      <div class="testi testi--accent reveal">
+        <div class="stars">★★★★★</div>
+        <p>"We supply Naveen Thailand Mangoes to our hotel buffet. Guests always ask where we source from. Consistency, freshness, and wholesale pricing are all excellent."</p>
+        <div class="testi-who"><div class="testi-av">R</div><div><strong>Ramesh K.</strong><small>Hotel Manager, Vijayapura</small></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Fibre-free, incredibly sweet, no chemical smell whatsoever. Arrived perfectly ripe. Best mangoes I've had in India — will definitely reorder."</p>
+        <div class="testi-who"><div class="testi-av">A</div><div><strong>Anil M.</strong><small>Pune, Online Customer</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;">
+      <div class="kicker">Get in Touch</div>
+      <h2>Order Fresh.<br /><em>Order Direct.</em></h2>
+      <p class="section-sub">Home buyer or bulk wholesaler — just call or WhatsApp. Farm is on NH-50, easy to reach.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="contact-item">
+          <span>📞</span>
+          <div><strong>Phone / WhatsApp</strong><a href="tel:+918123505794">+91 8123505794</a></div>
+        </div>
+        <div class="contact-item">
+          <span>📍</span>
+          <div><strong>Farm Address</strong><span>NH-50, Gulbarga–Bijapur Highway<br />Vijayapura – 586127, Karnataka, India</span></div>
+        </div>
+        <div class="contact-item">
+          <span>🗺️</span>
+          <div><strong>Google Maps</strong><a href="https://maps.google.com/?q=Naveen+Mango+Thailand+Vijayapura" target="_blank" rel="noopener">Search "Naveen Mango Thailand"</a></div>
+        </div>
+        <div class="contact-item">
+          <span>🕐</span>
+          <div><strong>Hours</strong><span>7 AM – 7 PM, All Days</span></div>
+        </div>
+        <div class="contact-btns">
+          <a href="tel:+918123505794" class="btn-fill">📞 Call Now</a>
+          <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27d%20like%20to%20place%20an%20order!" class="btn-wa-lg" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Order
+          </a>
+        </div>
+      </div>
+      <div class="contact-right reveal">
+        <div class="contact-form-box">
+          <h3>Send an Inquiry</h3>
+          <form id="inquiryForm" novalidate>
+            <div class="fg"><label>Your Name</label><input type="text" id="fname" placeholder="Ramesh Kumar" required /></div>
+            <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="fphone" placeholder="+91 98765 43210" required /></div>
+            <div class="fg">
+              <label>Order Type</label>
+              <select id="ftype">
+                <option value="retail">Retail — Home / Personal</option>
+                <option value="wholesale">Wholesale / Bulk</option>
+                <option value="hotel">Hotel / Restaurant</option>
+                <option value="export">Export Inquiry</option>
+              </select>
+            </div>
+            <div class="fg"><label>Quantity</label><input type="text" id="fqty" placeholder="e.g. 5 kg, 50 kg, 500 kg..." /></div>
+            <div class="fg"><label>Message</label><textarea id="fmsg" rows="3" placeholder="Delivery location, any requirements..."></textarea></div>
+            <button type="submit" class="btn-wa-lg btn-full-w">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Send via WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="map-box reveal">
+      <iframe src="https://maps.google.com/maps?q=Naveen+Mango+Thailand+Vijayapura+Karnataka&output=embed&z=15"
+        width="100%" height="380" style="border:0;" allowfullscreen loading="lazy"
+        title="Naveen Mango Thailand — NH-50 Vijayapura 586127"></iframe>
+      <p>📍 NH-50, Gulbarga–Bijapur Highway, Vijayapura 586127 · Search <strong>"Naveen Mango Thailand"</strong> on Google Maps</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mangoes%2C%20I%27d%20like%20to%20order!" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp Order">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-wrap">
+    <div class="footer-brand">
+      <div class="footer-logo">🥭 Naveen <em>Mangoes</em></div>
+      <p>Premium Thailand variety mangoes. Naturally grown on NH-50, Vijayapura 586127, Karnataka. Chemical-free. Farm-fresh. Year-round.</p>
+      <a href="https://wa.me/918123505794" class="wa-footer-btn" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#farming">Our Farming</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#contact">Order Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+918123505794">📞 +91 8123505794</a></li>
+        <li><a href="https://wa.me/918123505794" target="_blank" rel="noopener">💬 WhatsApp Order</a></li>
+        <li><span>📍 NH-50, Gulbarga–Bijapur Hwy<br />Vijayapura – 586127, KA</span></li>
+        <li><span>🕐 7 AM – 7 PM, All Days</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Naveen Mangoes · Premium Thailand Mango Farm · NH-50, Vijayapura 586127, Karnataka, India</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+EOF
+
+Write complete premium style.css
+
