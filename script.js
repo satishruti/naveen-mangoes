@@ -81,7 +81,7 @@ if (form) {
       retail: 'Retail Order',
       wholesale: 'Wholesale / Bulk Order',
       export: 'Export Inquiry',
-      jackfruit: 'Jackfruit Inquiry'
+      hotel: 'Hotel / Restaurant'
     };
 
     const waMessage = `Hello Naveen Mangoes! 🥭
@@ -99,7 +99,7 @@ I found you on your website and would like to place an order.`;
 }
 
 // ===== GALLERY LIGHTBOX (simple) =====
-const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryItems = document.querySelectorAll('.gallery-item, .m-item');
 galleryItems.forEach(item => {
   item.addEventListener('click', () => {
     const img = item.querySelector('img');
@@ -112,7 +112,7 @@ galleryItems.forEach(item => {
       padding:2rem;
     `;
     const bigImg = document.createElement('img');
-    bigImg.src = img.src.replace(/w=\d+/, 'w=1200');
+    bigImg.src = img.src;
     bigImg.style.cssText = 'max-width:90vw;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);';
     overlay.appendChild(bigImg);
     overlay.addEventListener('click', () => overlay.remove());
@@ -122,7 +122,7 @@ galleryItems.forEach(item => {
 
 // ===== ACTIVE NAV LINK ON SCROLL =====
 const sections = document.querySelectorAll('section[id]');
-const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"], .nav-menu a[href^="#"]');
 
 window.addEventListener('scroll', () => {
   let current = '';
@@ -139,3 +139,13 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// ===== TICKER / MARQUEE DUPLICATE FOR SMOOTH LOOP =====
+const ticker = document.querySelector('.ticker-inner');
+if (ticker) {
+  ticker.innerHTML += ticker.innerHTML;
+}
+const marquee = document.querySelector('.marquee-track');
+if (marquee) {
+  marquee.innerHTML += marquee.innerHTML;
+}
