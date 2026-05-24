@@ -306,7 +306,77 @@ function tryPlayVideo(src, title) {
   };
 }
 
+// ===== B2B WHOLESALE CALCULATOR =====
+const calcSlider = document.getElementById('calcSlider');
+const calcQtyVal = document.getElementById('calcQtyVal');
+const calcTotalMangoes = document.getElementById('calcTotalMangoes');
+const calcBasePrice = document.getElementById('calcBasePrice');
+const calcDiscount = document.getElementById('calcDiscount');
+const calcTotalAmt = document.getElementById('calcTotalAmt');
+const calcWABtn = document.getElementById('calcWABtn');
+
+function updateWholesaleCalc() {
+  if (!calcSlider) return;
+  const qty = parseInt(calcSlider.value, 10);
+  const totalMangoes = qty * MANGOES_PER_BOX;
+  const basePrice = qty * PRICE_PER_BOX;
+  
+  let discountPct = 0;
+  if (qty >= 50) {
+    discountPct = 20;
+  } else if (qty >= 25) {
+    discountPct = 15;
+  } else if (qty >= 10) {
+    discountPct = 10;
+  } else if (qty >= 5) {
+    discountPct = 5;
+  }
+  
+  const discountAmt = Math.round(basePrice * (discountPct / 100));
+  const finalPrice = basePrice - discountAmt;
+  
+  if (calcQtyVal) calcQtyVal.textContent = qty + ' Box' + (qty > 1 ? 'es' : '');
+  if (calcTotalMangoes) calcTotalMangoes.textContent = totalMangoes.toLocaleString('en-IN') + ' Mangoes';
+  if (calcBasePrice) calcBasePrice.textContent = '₹' + basePrice.toLocaleString('en-IN');
+  if (calcDiscount) calcDiscount.textContent = '₹' + discountAmt.toLocaleString('en-IN') + ' (' + discountPct + '%)';
+  if (calcTotalAmt) calcTotalAmt.textContent = '₹' + finalPrice.toLocaleString('en-IN');
+}
+
+if (calcSlider) {
+  calcSlider.addEventListener('input', updateWholesaleCalc);
+}
+
+if (calcWABtn) {
+  calcWABtn.addEventListener('click', () => {
+    if (!calcSlider) return;
+    const qty = parseInt(calcSlider.value, 10);
+    const total = qty * PRICE_PER_BOX;
+    
+    let discountPct = 0;
+    if (qty >= 50) discountPct = 20;
+    else if (qty >= 25) discountPct = 15;
+    else if (qty >= 10) discountPct = 10;
+    else if (qty >= 5) discountPct = 5;
+    
+    const discountAmt = Math.round(total * (discountPct / 100));
+    const finalPrice = total - discountAmt;
+    
+    const waMsg = 'Hello Naveen Mango Thailand! 🥭\n\n' +
+      'I would like to inquire about a Wholesale/B2B order:\n' +
+      'Quantity: ' + qty + ' box' + (qty > 1 ? 'es' : '') + ' (' + (qty * MANGOES_PER_BOX) + ' mangoes)\n' +
+      'Estimated Wholesale Price: ₹' + finalPrice.toLocaleString('en-IN') + ' (after ' + discountPct + '% bulk discount)\n\n' +
+      'Please let me know about delivery timeline and logistics to my location.\n' +
+      'Website Calculator Inquiry.';
+      
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(waMsg), '_blank');
+  });
+}
+
 // ===== INIT =====
 updateProductQty(1);
 updateCartUI();
+if (calcSlider) {
+  updateWholesaleCalc();
+}
+
 
