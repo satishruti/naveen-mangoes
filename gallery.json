@@ -1,0 +1,34 @@
+{
+  "images": [
+    {
+      "src": "Images/farmer-photo.png",
+      "alt": "Naveen at Thailand Mango farm Vijayapura",
+      "caption": "Our Farmer – Naveen",
+      "aspect": "tall"
+    },
+    {
+      "src": "Images/hero_mangoes.png",
+      "alt": "Thailand Mango trees Vijayapura farm",
+      "caption": "Thailand Mango Trees",
+      "aspect": "normal"
+    },
+    {
+      "src": "Images/awards.png",
+      "alt": "Naveen Mangoes government recognition",
+      "caption": "Government Recognition",
+      "aspect": "normal"
+    },
+    {
+      "src": "Images/about_drip_farm.png",
+      "alt": "Naveen Mango Thailand facility NH-50 Vijayapura",
+      "caption": "Our Farm Facility – NH-50",
+      "aspect": "wide"
+    },
+    {
+      "src": "Images/product_box.png",
+      "alt": "Awards and press coverage",
+      "caption": "Press & Awards",
+      "aspect": "normal"
+    }
+  ]
+}

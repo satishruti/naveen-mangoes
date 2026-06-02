@@ -33,7 +33,7 @@
 <!-- ===== ANNOUNCEMENT TICKER ===== -->
 <div class="ticker-bar">
   <div class="ticker-track" id="tickerTrack">
-    <span>🥭 Box of 12 Premium Thailand Mangoes — ₹1,400</span>
+    <span>🥭 Box of 12 Premium Thailand Mangoes — <span class="dynamic-price">₹1,400</span></span>
     <span class="tdot">✦</span>
     <span>📍 NH-50, Vijayapura 586127 — Direct Farm Delivery</span>
     <span class="tdot">✦</span>
@@ -89,9 +89,9 @@
     <h1>Premium Thailand<br/><em>Mangoes</em><br/>From Our Farm</h1>
     <p>Exotic Thailand variety. Tree-ripened naturally. Zero chemicals.<br/>Farm-packed &amp; delivered direct from Vijayapura, Karnataka.</p>
     <div class="hero-btns">
-      <a href="#products" class="btn-fill btn-fill-lg">
+      <a href="#products" class="btn-fill btn-fill-lg" id="heroOrderBtn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        Order Now — ₹1,400/box
+        <span id="heroOrderBtnText">Order Now — ₹1,400/box</span>
       </a>
       <a href="https://wa.me/918123505794?text=Hello%20Naveen%20Mango%20Thailand%2C%20I%27m%20interested%20in%20Thailand%20Mangoes!" class="btn-wa btn-wa-lg" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -121,7 +121,7 @@
   <div class="wrap">
     <div class="bento-grid">
       <div class="bento-card bento-hero-card reveal">
-        <div class="bento-big-num">₹1,400</div>
+        <div class="bento-big-num" id="bentoPrice">₹1,400</div>
         <div class="bento-label">Per Box · 12 Mangoes</div>
         <p class="bento-sub">Farm-packed, zero chemicals, naturally ripened — delivered direct from our NH-50 farm.</p>
         <a href="#products" class="btn-fill" style="margin-top:1.5rem;display:inline-flex;">Order a Box</a>
@@ -233,8 +233,9 @@
         <!-- PRICE + QUANTITY + CART -->
         <div class="order-box">
           <div class="price-display">
-            <span class="price-amount">₹1,400</span>
+            <span class="price-amount" id="productPrice">₹1,400</span>
             <span class="price-per">/ box of 12 mangoes</span>
+            <span id="stockBadge" class="stock-badge"></span>
           </div>
           <div class="quantity-row">
             <label>Select Boxes:</label>
@@ -385,32 +386,8 @@
       <h2 style="color:#fff;">Moments from Our Farm</h2>
       <p style="color:rgba(255,255,255,.55);max-width:500px;margin:1rem auto 0;">Real photos from Naveen Mango Thailand — featured in Kannada media, recognised by Vijayapura officials.</p>
     </div>
-    <div class="masonry reveal">
-      <div class="m-item m-tall">
-        <img src="Images/farmer-photo.png" alt="Naveen at Thailand Mango farm Vijayapura" loading="lazy"
-          onerror="this.src='Images/mango.png'"/>
-        <div class="m-caption">Our Farmer – Naveen</div>
-      </div>
-      <div class="m-item">
-        <img src="Images/hero_mangoes.png" alt="Thailand Mango trees Vijayapura farm" loading="lazy"
-          onerror="this.src='Images/farmer-photo.png'"/>
-        <div class="m-caption">Thailand Mango Trees</div>
-      </div>
-      <div class="m-item">
-        <img src="Images/awards.png" alt="Naveen Mangoes government recognition" loading="lazy"
-          onerror="this.src='Images/mango.png'"/>
-        <div class="m-caption">Government Recognition</div>
-      </div>
-      <div class="m-item m-wide">
-        <img src="Images/about_drip_farm.png" alt="Naveen Mango Thailand facility NH-50 Vijayapura" loading="lazy"
-          onerror="this.src='Images/farmer-photo.png'"/>
-        <div class="m-caption">Our Farm Facility – NH-50</div>
-      </div>
-      <div class="m-item">
-        <img src="Images/product_box.png" alt="Awards and press coverage" loading="lazy"
-          onerror="this.src='Images/mango.png'"/>
-        <div class="m-caption">Press &amp; Awards</div>
-      </div>
+    <div class="masonry reveal" id="galleryMasonry">
+      <!-- Dynamic Google Drive & Local images render here -->
     </div>
 
     <!-- VIDEO SECTION -->
@@ -694,4 +671,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-HTMLEOF

@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "id": "thailand-mango-box",
+      "name": "Thailand Mango Box",
+      "price": 1400,
+      "stock": 25,
+      "status": "in_stock",
+      "note": "Box of 12 naturally ripened mangoes",
+      "updated": "2026-06-02"
+    }
+  ]
+}
