@@ -354,8 +354,8 @@ if (calcWABtn) {
 }
 
 // ===== CDN / JSON CONFIG PATHS =====
-const STOCK_CDN_URL = 'https://cdn.jsdelivr.net/gh/satishruti/naveen-mangoes@main/stock.json';
-const GALLERY_CDN_URL = 'https://cdn.jsdelivr.net/gh/satishruti/naveen-mangoes@main/gallery.json';
+const STOCK_CDN_URL = '/stock.json';
+const GALLERY_CDN_URL = '/gallery.json';
 
 // ===== LOAD DYNAMIC STOCK =====
 async function loadStock() {
