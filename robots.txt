@@ -1,0 +1,28 @@
+# Naveen Mango Thailand – robots.txt
+# https://naveenmangoes.in
+
+User-agent: *
+Allow: /
+Disallow: /unzipped_pictures/
+Disallow: /*.zip$
+
+# Sitemap
+Sitemap: https://naveenmangoes.in/sitemap.xml
+
+# Crawl-delay (polite crawling)
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Allow: /Images/
+Allow: /videos/
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /Images/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
