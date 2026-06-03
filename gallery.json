@@ -1,33 +1,45 @@
 {
   "images": [
     {
-      "src": "Images/farmer-photo.png",
-      "alt": "Naveen at Thailand Mango farm Vijayapura",
-      "caption": "Our Farmer – Naveen",
-      "aspect": "tall"
-    },
-    {
-      "src": "Images/hero_mangoes.png",
-      "alt": "Thailand Mango trees Vijayapura farm",
-      "caption": "Thailand Mango Trees",
+      "src": "Images/farm_photo_26.jpeg",
+      "alt": "Thailand Mango trees at Naveen Farm Vijayapura",
+      "caption": "Tree-Laden Mango Clusters",
       "aspect": "normal"
     },
     {
-      "src": "Images/awards.png",
-      "alt": "Naveen Mangoes government recognition",
-      "caption": "Government Recognition",
-      "aspect": "normal"
-    },
-    {
-      "src": "Images/about_drip_farm.png",
-      "alt": "Naveen Mango Thailand facility NH-50 Vijayapura",
-      "caption": "Our Farm Facility – NH-50",
+      "src": "Images/farm_photo_23.jpeg",
+      "alt": "Pioneer farmer Naveen Manganawar crouching next to mango tree",
+      "caption": "Pioneer Farmer Naveen Manganawar",
       "aspect": "wide"
     },
     {
-      "src": "Images/product_box.png",
-      "alt": "Awards and press coverage",
-      "caption": "Press & Awards",
+      "src": "Images/farm_photo_20.jpeg",
+      "alt": "Premium harvested Thailand Mango boxes packed at farm",
+      "caption": "Premium Farm-Packed Mangoes",
+      "aspect": "normal"
+    },
+    {
+      "src": "Images/farm_photo_19.jpeg",
+      "alt": "Freshly sorted premium mangoes in packing box",
+      "caption": "Sorted Quality Selection",
+      "aspect": "tall"
+    },
+    {
+      "src": "Images/farm_photo_27.jpeg",
+      "alt": "Drip irrigated young Thailand mango trees at NH-50 farm",
+      "caption": "Orchard Rows under Drip Irrigation",
+      "aspect": "wide"
+    },
+    {
+      "src": "Images/farm_photo_25.jpeg",
+      "alt": "Single box of premium naturally ripened yellow mangoes",
+      "caption": "Naturally Ripened & Straw-Packed",
+      "aspect": "tall"
+    },
+    {
+      "src": "Images/farm_photo_37.jpeg",
+      "alt": "Naveen Mango 365 Days - The King of Mangoes logo",
+      "caption": "Official Quality Badge",
       "aspect": "normal"
     }
   ]

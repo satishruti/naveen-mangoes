@@ -287,6 +287,33 @@ function tryPlayVideo(src, title) {
   };
 }
 
+// ===== VIDEO HOVER PREVIEW LOGIC =====
+function initVideoHoverPreviews() {
+  const cards = document.querySelectorAll('.v-card');
+  cards.forEach(card => {
+    const video = card.querySelector('.v-preview');
+    if (!video) return;
+    
+    card.addEventListener('mouseenter', () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Playback failed or was interrupted (safely ignored)
+        });
+      }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', initVideoHoverPreviews);
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  initVideoHoverPreviews();
+}
+
 // ===== B2B WHOLESALE CALCULATOR =====
 const calcSlider = document.getElementById('calcSlider');
 const calcQtyVal = document.getElementById('calcQtyVal');
@@ -450,6 +477,34 @@ async function loadStock() {
   }
 }
 
+// ===== IMAGE LIGHTBOX ZOOM =====
+function zoomImage(src, captionText = '') {
+  const ov = document.createElement('div');
+  ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:zoom-out;padding:1.5rem;';
+  
+  const big = document.createElement('img');
+  big.src = src;
+  big.style.cssText = 'max-width:92vw;max-height:85vh;object-fit:contain;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.8);transition:transform 0.3s ease;';
+  
+  const cl = document.createElement('button');
+  cl.innerHTML = '✕';
+  cl.style.cssText = 'position:absolute;top:1.5rem;right:2rem;background:rgba(255,255,255,.12);border:none;border-radius:50%;width:40px;height:40px;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;';
+  cl.addEventListener('click', e => { e.stopPropagation(); ov.remove(); });
+  
+  ov.appendChild(big);
+  ov.appendChild(cl);
+  
+  if (captionText) {
+    const cap = document.createElement('p');
+    cap.textContent = captionText;
+    cap.style.cssText = 'color:rgba(255,255,255,0.95);margin-top:1.2rem;font-size:0.95rem;font-weight:600;text-align:center;max-width:650px;text-shadow:0 2px 5px rgba(0,0,0,0.6);line-height:1.4;font-family:sans-serif;';
+    ov.appendChild(cap);
+  }
+  
+  ov.addEventListener('click', () => ov.remove());
+  document.body.appendChild(ov);
+}
+
 // ===== LOAD DYNAMIC GALLERY (GOOGLE DRIVE + LOCAL) =====
 async function loadGallery() {
   let data = null;
@@ -499,19 +554,7 @@ async function loadGallery() {
         item.appendChild(caption);
 
         item.addEventListener('click', () => {
-          const ov = document.createElement('div');
-          ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:1.5rem;';
-          const big = document.createElement('img');
-          big.src = imageEl.src;
-          big.style.cssText = 'max-width:92vw;max-height:90vh;object-fit:contain;border-radius:12px;';
-          const cl = document.createElement('button');
-          cl.innerHTML = '✕';
-          cl.style.cssText = 'position:absolute;top:1.5rem;right:2rem;background:rgba(255,255,255,.12);border:none;border-radius:50%;width:40px;height:40px;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;';
-          cl.addEventListener('click', e => { e.stopPropagation(); ov.remove(); });
-          ov.appendChild(big);
-          ov.appendChild(cl);
-          ov.addEventListener('click', () => ov.remove());
-          document.body.appendChild(ov);
+          zoomImage(imageEl.src, img.caption);
         });
 
         grid.appendChild(item);

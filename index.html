@@ -395,14 +395,55 @@
       <h3 style="color:#fff;text-align:center;margin-bottom:1.5rem;font-size:1.4rem;">🎬 Farm Videos</h3>
       <div class="video-row" id="videoRow">
         <!-- Videos from /videos/ folder load here -->
-        <div class="v-card" onclick="tryPlayVideo('videos/harvest.mp4','Harvest &amp; Packing')">
-          <div class="v-play">▶</div><p>Harvest &amp; Packing</p><small>Click to play</small>
+        <div class="v-card" onclick="tryPlayVideo('videos/harvest.mp4','Harvesting &amp; Packing')">
+          <video class="v-preview" muted loop playsinline preload="metadata">
+            <source src="videos/harvest.mp4" type="video/mp4">
+          </video>
+          <div class="v-overlay">
+            <div class="v-play">▶</div>
+            <p>Harvesting &amp; Packing</p>
+            <small>Hover to preview | Click to play</small>
+          </div>
+        </div>
+        <div class="v-card" onclick="tryPlayVideo('videos/mango-cut.mp4','Premium Mango Cut')">
+          <video class="v-preview" muted loop playsinline preload="metadata">
+            <source src="videos/mango-cut.mp4" type="video/mp4">
+          </video>
+          <div class="v-overlay">
+            <div class="v-play">▶</div>
+            <p>Premium Mango Cut</p>
+            <small>Hover to preview | Click to play</small>
+          </div>
         </div>
         <div class="v-card" onclick="tryPlayVideo('videos/farm-walk.mp4','Farm Walk Tour')">
-          <div class="v-play">▶</div><p>Farm Walk Tour</p><small>Click to play</small>
+          <video class="v-preview" muted loop playsinline preload="metadata">
+            <source src="videos/farm-walk.mp4" type="video/mp4">
+          </video>
+          <div class="v-overlay">
+            <div class="v-play">▶</div>
+            <p>Farm Walk Tour</p>
+            <small>Hover to preview | Click to play</small>
+          </div>
         </div>
-        <div class="v-card" onclick="tryPlayVideo('videos/mango-cut.mp4','Mango Cutting Reel')">
-          <div class="v-play">▶</div><p>Mango Cutting Reel</p><small>Click to play</small>
+        <div class="v-card" onclick="tryPlayVideo('videos/farm-tour.mp4','Drip Irrigation Orchard Tour')">
+          <video class="v-preview" muted loop playsinline preload="metadata">
+            <source src="videos/farm-tour.mp4" type="video/mp4">
+          </video>
+          <div class="v-overlay">
+            <div class="v-play">▶</div>
+            <p>Drip Orchard Tour</p>
+            <small>Hover to preview | Click to play</small>
+          </div>
+        </div>
+        <div class="v-card" onclick="tryPlayVideo('videos/mango-trees.mp4','Golden Mango Orchard Walk')">
+          <video class="v-preview" muted loop playsinline preload="metadata">
+            <source src="videos/mango-trees.mp4" type="video/mp4">
+          </video>
+          <div class="v-overlay">
+            <div class="v-play">▶</div>
+            <p>Mango Tree Orchard Walk</p>
+            <small>Hover to preview | Click to play</small>
+          </div>
         </div>
       </div>
     </div>
@@ -419,37 +460,37 @@
       <p class="section-sub">Naveen Mango Thailand has been featured in Kannada newspapers and officially recognised by Vijayapura district officials.</p>
     </div>
     <div class="press-grid">
-      <div class="press-card reveal">
+      <div class="press-card reveal" onclick="zoomImage('Images/farm_photo_7.jpeg', 'Kannada Newspaper Feature: Kannada media reporting on our pioneering Thailand mango cultivation.')" style="cursor:zoom-in;">
         <div class="press-img">
-          <img src="Images/awards.png" alt="Naveen Mangoes Kannada newspaper coverage" loading="lazy"
+          <img src="Images/farm_photo_7.jpeg" alt="Naveen Mangoes Kannada newspaper coverage" loading="lazy"
             onerror="this.src='Images/mango.png'"/>
         </div>
         <div class="press-body">
           <span class="press-icon">📰</span>
           <h4>Kannada Newspaper Feature</h4>
-          <p>"ಥೈಲ್ಯಾಂಡ್, ಜಪಾನ್ ತಳಿ ಭಜರಿ ಇಳುವರಿ" — Full feature on Thailand mango cultivation success in Vijayapura, Karnataka.</p>
+          <p>"ಥೈಲ್ಯಾಂಡ್, ಜಪಾನ್ ತಳಿ ಭಜರಿ ಇಳುವರಿ" — Full feature on Thailand mango cultivation success in Vijayapura, Karnataka. Click to view clipping.</p>
         </div>
       </div>
-      <div class="press-card press-card--accent reveal">
+      <div class="press-card press-card--accent reveal" onclick="zoomImage('Images/farm_photo_10.jpeg', 'Official Government Recognition: Presenting our high-quality farm-grown mangoes to the Vijayapura District Administration.')" style="cursor:zoom-in;">
         <div class="press-img">
-          <img src="Images/building.jpeg" alt="Government recognition Naveen Mangoes Vijayapura" loading="lazy"
+          <img src="Images/farm_photo_10.jpeg" alt="Government recognition Naveen Mangoes Vijayapura" loading="lazy"
             onerror="this.src='Images/mango.png'"/>
         </div>
         <div class="press-body">
           <span class="press-icon">🏛️</span>
           <h4>Government Recognition</h4>
-          <p>Officially presented to Vijayapura district government officials — recognising our landmark contribution to regional agriculture and exotic variety cultivation.</p>
+          <p>Officially presented to Vijayapura district government officials — recognising our landmark contribution to regional agriculture. Click to view photo.</p>
         </div>
       </div>
-      <div class="press-card reveal">
+      <div class="press-card reveal" onclick="zoomImage('Images/farm_photo_29.jpeg', 'Award Ceremony: Receiving the VK Excellence & Honor Award from Bennett & Coleman / Times of India Group.')" style="cursor:zoom-in;">
         <div class="press-img">
-          <img src="Images/farmer-photo.png" alt="Pioneer Thailand mango farmer Vijayapura" loading="lazy"
+          <img src="Images/farm_photo_29.jpeg" alt="Pioneer Thailand mango farmer Vijayapura VK Award" loading="lazy"
             onerror="this.src='Images/mango.png'"/>
         </div>
         <div class="press-body">
           <span class="press-icon">🌾</span>
-          <h4>Pioneer Farmer</h4>
-          <p>One of the first farms in the Vijayapura–Bijapur region to commercially cultivate Thailand mangoes at scale with year-round, chemical-free production.</p>
+          <h4>Pioneer Farmer Award</h4>
+          <p>Recipient of the prestigious "VK Excellence & Honor" award for outstanding agricultural innovation in the region. Click to view award ceremony.</p>
         </div>
       </div>
     </div>
