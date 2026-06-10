@@ -6,12 +6,13 @@
 let PRICE_PER_BOX = 1400;
 const MANGOES_PER_BOX = 12;
 const WA_NUMBER = '918123505794';
-const UPI_ID = '8123505794@upi';
+const UPI_ID = '9538234899@ybl';
 const UPI_NAME = 'Naveen Mango Thailand';
 
 // ===== STATE =====
 let cartQty = 0;
 let productQty = 1;
+let stockLimit = 99;
 
 // ===== NAV SCROLL =====
 const nav = document.getElementById('nav');
@@ -93,7 +94,8 @@ const qtyTotal = document.getElementById('qtyTotal');
 const qtyPcs = document.getElementById('qtyPcs');
 
 function updateProductQty(n) {
-  productQty = Math.max(1, Math.min(99, n));
+  const maxQty = Math.max(1, stockLimit);
+  productQty = Math.max(1, Math.min(maxQty, n));
   if (qtyVal) qtyVal.textContent = productQty;
   const total = productQty * PRICE_PER_BOX;
   if (qtyTotal) qtyTotal.textContent = '₹' + total.toLocaleString('en-IN');
@@ -176,7 +178,7 @@ document.getElementById('cartMinus') && document.getElementById('cartMinus').add
   if (cartQty > 1) { cartQty--; updateCartUI(); }
 });
 document.getElementById('cartPlus') && document.getElementById('cartPlus').addEventListener('click', () => {
-  if (cartQty < 99) { cartQty++; updateCartUI(); }
+  if (cartQty < stockLimit) { cartQty++; updateCartUI(); }
 });
 
 // ===== UPI COPY =====
@@ -408,6 +410,18 @@ async function loadStock() {
       PRICE_PER_BOX = product.price;
     }
 
+    if (product.stock !== undefined && product.stock !== null) {
+      stockLimit = parseInt(product.stock, 10);
+    } else if (product.status === 'out_of_stock') {
+      stockLimit = 0;
+    } else {
+      stockLimit = 99;
+    }
+
+    if (cartQty > stockLimit) {
+      cartQty = stockLimit;
+    }
+
     const priceFormatted = '₹' + PRICE_PER_BOX.toLocaleString('en-IN');
     
     const productPriceEl = document.getElementById('productPrice');
@@ -571,5 +585,52 @@ if (calcSlider) {
 }
 loadStock();
 loadGallery();
+
+// ===== FAQ ACCORDION TOGGLE =====
+function initFAQAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const qBtn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-icon');
+    
+    if (qBtn && answer) {
+      qBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other FAQ items first
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            const otherIcon = otherItem.querySelector('.faq-icon');
+            if (otherAnswer) otherAnswer.style.maxHeight = null;
+            if (otherIcon) otherIcon.textContent = '+';
+            const otherBtn = otherItem.querySelector('.faq-question');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Toggle current FAQ item
+        if (isActive) {
+          item.classList.remove('active');
+          answer.style.maxHeight = null;
+          if (icon) icon.textContent = '+';
+          qBtn.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          if (icon) icon.textContent = '−';
+          qBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', initFAQAccordion);
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  initFAQAccordion();
+}
+
 
 

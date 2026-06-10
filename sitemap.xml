@@ -5,32 +5,32 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://naveenmangoes.in/</loc>
+    <loc>https://naveenmangoes.com/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://naveenmangoes.in/Images/hero_mangoes.png</image:loc>
+      <image:loc>https://naveenmangoes.com/Images/hero_mangoes.png</image:loc>
       <image:title>Premium Thailand Mangoes – Naveen Mango Farm Vijayapura</image:title>
       <image:caption>Farm-fresh Thailand variety mangoes from NH-50, Vijayapura Karnataka</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://naveenmangoes.in/Images/sliced_mango.png</image:loc>
+      <image:loc>https://naveenmangoes.com/Images/sliced_mango.png</image:loc>
       <image:title>Sliced Golden Thailand Mango – Fibre-Free Premium Quality</image:title>
       <image:caption>Premium Thailand mango sliced showing golden fibre-free flesh</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://naveenmangoes.in/Images/about_drip_farm.png</image:loc>
+      <image:loc>https://naveenmangoes.com/Images/about_drip_farm.png</image:loc>
       <image:title>Drip Irrigated Thailand Mango Farm – NH-50 Vijayapura</image:title>
       <image:caption>Naveen inspecting drip-irrigated Thailand mango trees at farm</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://naveenmangoes.in/Images/farming_philosophy.png</image:loc>
+      <image:loc>https://naveenmangoes.com/Images/farming_philosophy.png</image:loc>
       <image:title>Chemical-Free Mango Farming – Natural Cultivation Vijayapura</image:title>
       <image:caption>Natural chemical-free mango farming practices at Naveen Mango Thailand</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://naveenmangoes.in/Images/packing_facility.png</image:loc>
+      <image:loc>https://naveenmangoes.com/Images/packing_facility.png</image:loc>
       <image:title>Mango Packing Facility – Quality Sorting NH-50</image:title>
       <image:caption>Hygienic mango sorting and packing facility on NH-50 highway</image:caption>
     </image:image>
@@ -38,21 +38,21 @@
 
   <!-- Blog Articles -->
   <url>
-    <loc>https://naveenmangoes.in/blog-thailand-mango-benefits.html</loc>
+    <loc>https://naveenmangoes.com/blog-thailand-mango-benefits.html</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://naveenmangoes.in/blog-chemical-free-mango-farming.html</loc>
+    <loc>https://naveenmangoes.com/blog-chemical-free-mango-farming.html</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://naveenmangoes.in/blog-how-to-identify-naturally-ripened-mangoes.html</loc>
+    <loc>https://naveenmangoes.com/blog-how-to-identify-naturally-ripened-mangoes.html</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -60,21 +60,21 @@
 
   <!-- Location Pages -->
   <url>
-    <loc>https://naveenmangoes.in/vijayapura-mango-farm.html</loc>
+    <loc>https://naveenmangoes.com/vijayapura-mango-farm.html</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://naveenmangoes.in/mango-delivery-bangalore.html</loc>
+    <loc>https://naveenmangoes.com/mango-delivery-bangalore.html</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://naveenmangoes.in/wholesale-mango-karnataka.html</loc>
+    <loc>https://naveenmangoes.com/wholesale-mango-karnataka.html</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
