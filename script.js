@@ -5,7 +5,7 @@
 
 let PRICE_PER_BOX = 1400;
 const MANGOES_PER_BOX = 12;
-const WA_NUMBER = '918123505794';
+const WA_NUMBER = '919538234899';
 const UPI_ID = '9538234899@ybl';
 const UPI_NAME = 'Naveen Mango Thailand';
 
@@ -209,7 +209,7 @@ document.getElementById('upiOpenBtn') && document.getElementById('upiOpenBtn').a
   const upiUrl = 'upi://pay?pa=' + UPI_ID + '&pn=' + encodeURIComponent(UPI_NAME) + '&am=' + total + '&tn=' + note + '&cu=INR';
   window.location.href = upiUrl;
   setTimeout(() => {
-    alert('If UPI app did not open, please manually open GPay / PhonePe / Paytm and pay ₹' + total.toLocaleString('en-IN') + ' to UPI ID: ' + UPI_ID + '\n\nThen send payment screenshot to WhatsApp +91 8123505794 to confirm order.');
+    alert('If UPI app did not open, please manually open GPay / PhonePe / Paytm and pay ₹' + total.toLocaleString('en-IN') + ' to UPI ID: ' + UPI_ID + '\n\nThen send payment screenshot to WhatsApp +91 9538234899 (Alt: +91 8123505794) to confirm order.');
   }, 2000);
 });
 
@@ -284,7 +284,7 @@ function tryPlayVideo(src, title) {
     vid.remove();
     const msg = document.createElement('p');
     msg.style.cssText = 'color:rgba(255,255,255,.6);text-align:center;font-size:.9rem;';
-    msg.textContent = title + ' video not yet uploaded. Share via WhatsApp to +91 8123505794.';
+    msg.textContent = title + ' video not yet uploaded. Share via WhatsApp to +91 9538234899 (Alt: +91 8123505794).';
     modal.insertBefore(msg, cl);
   };
 }
@@ -631,6 +631,3 @@ document.addEventListener('DOMContentLoaded', initFAQAccordion);
 if (document.readyState === 'interactive' || document.readyState === 'complete') {
   initFAQAccordion();
 }
-
-
-
