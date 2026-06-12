@@ -5,7 +5,7 @@
 
 let PRICE_PER_BOX = 1400;
 const MANGOES_PER_BOX = 12;
-const WA_NUMBER = '918123505794';
+const WA_NUMBER = '919538234899';
 const UPI_ID = '9538234899@ybl';
 const UPI_NAME = 'Naveen Mango Thailand';
 
@@ -155,6 +155,7 @@ function updateCartUI() {
     if (csSummaryBoxes) csSummaryBoxes.textContent = cartQty + ' box' + (cartQty > 1 ? 'es' : '') + ' (' + (cartQty * MANGOES_PER_BOX) + ' mangoes)';
     if (csTotalAmt) csTotalAmt.textContent = '₹' + total.toLocaleString('en-IN');
     if (upiAmountDisplay) upiAmountDisplay.textContent = '₹' + total.toLocaleString('en-IN');
+    updateDynamicQRCode(total);
   }
 }
 
@@ -202,16 +203,75 @@ document.getElementById('upiCopyBtn') && document.getElementById('upiCopyBtn').a
   });
 });
 
-// ===== UPI OPEN APP =====
-document.getElementById('upiOpenBtn') && document.getElementById('upiOpenBtn').addEventListener('click', () => {
-  const total = cartQty * PRICE_PER_BOX;
-  const note = encodeURIComponent('Thailand Mango ' + cartQty + ' box' + (cartQty > 1 ? 'es' : ''));
-  const upiUrl = 'upi://pay?pa=' + UPI_ID + '&pn=' + encodeURIComponent(UPI_NAME) + '&am=' + total + '&tn=' + note + '&cu=INR';
-  window.location.href = upiUrl;
-  setTimeout(() => {
-    alert('If UPI app did not open, please manually open GPay / PhonePe / Paytm and pay ₹' + total.toLocaleString('en-IN') + ' to UPI ID: ' + UPI_ID + '\n\nThen send payment screenshot to WhatsApp +91 8123505794 to confirm order.');
-  }, 2000);
-});
+// ===== DYNAMIC UPI FUNCTIONS =====
+function updateDynamicQRCode(amount) {
+  const qrImage = document.getElementById('upiQrCodeImage');
+  if (!qrImage) return;
+  const note = 'Thailand Mangoes ' + cartQty + ' Box' + (cartQty > 1 ? 'es' : '');
+  const upiUrl = 'upi://pay?pa=' + UPI_ID + '&pn=' + encodeURIComponent(UPI_NAME) + '&am=' + amount + '&tn=' + encodeURIComponent(note) + '&cu=INR';
+  // Generates a clean QR code using a high-performance open QR API
+  qrImage.src = 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=8&data=' + encodeURIComponent(upiUrl);
+}
+
+function initUPITabs() {
+  const tabBtnQr = document.getElementById('tabBtnQr');
+  const tabBtnApps = document.getElementById('tabBtnApps');
+  const tabContentQr = document.getElementById('tabContentQr');
+  const tabContentApps = document.getElementById('tabContentApps');
+  
+  if (!tabBtnQr || !tabBtnApps || !tabContentQr || !tabContentApps) return;
+  
+  tabBtnQr.addEventListener('click', () => {
+    tabBtnQr.classList.add('active');
+    tabBtnApps.classList.remove('active');
+    tabContentQr.classList.add('active');
+    tabContentApps.classList.remove('active');
+  });
+  
+  tabBtnApps.addEventListener('click', () => {
+    tabBtnApps.classList.add('active');
+    tabBtnQr.classList.remove('active');
+    tabContentApps.classList.add('active');
+    tabContentQr.classList.remove('active');
+  });
+}
+
+function initUPIAppLaunchers() {
+  const btnPhonePe = document.getElementById('btnPayPhonePe');
+  const btnGPay = document.getElementById('btnPayGPay');
+  const btnPaytm = document.getElementById('btnPayPaytm');
+  const btnGeneric = document.getElementById('btnPayGenericUPI');
+  
+  const getUpiUrl = (scheme) => {
+    const total = cartQty * PRICE_PER_BOX;
+    const note = 'Thailand Mangoes ' + cartQty + ' Box' + (cartQty > 1 ? 'es' : '');
+    return scheme + '://pay?pa=' + UPI_ID + '&pn=' + encodeURIComponent(UPI_NAME) + '&am=' + total + '&tn=' + encodeURIComponent(note) + '&cu=INR';
+  };
+  
+  const launchUpiUrl = (url, fallbackName) => {
+    window.location.href = url;
+    setTimeout(() => {
+      const total = cartQty * PRICE_PER_BOX;
+      alert('If ' + fallbackName + ' did not open automatically, please verify it is installed on your device or manually pay using the QR code / UPI ID:\n\nUPI ID: ' + UPI_ID + '\nAmount: ₹' + total.toLocaleString('en-IN') + '\n\nSend payment screenshot to WhatsApp +91 9538234899 to confirm order.');
+    }, 2000);
+  };
+  
+  btnPhonePe && btnPhonePe.addEventListener('click', () => {
+    launchUpiUrl(getUpiUrl('phonepe'), 'PhonePe');
+  });
+  
+  btnGPay && btnGPay.addEventListener('click', () => {
+    launchUpiUrl(getUpiUrl('tez'), 'Google Pay');
+  });
+  
+  btnPaytm && btnPaytm.addEventListener('click', () => {
+    launchUpiUrl(getUpiUrl('paytmmp'), 'Paytm');
+  });
+  
+  btnGeneric && btnGeneric.addEventListener('click', () => {
+    launchUpiUrl(getUpiUrl('upi'), 'your UPI App');
+  });
+}
 
 // ===== WHATSAPP CHECKOUT =====
 function buildWAMessage(qty) {
@@ -284,7 +344,7 @@ function tryPlayVideo(src, title) {
     vid.remove();
     const msg = document.createElement('p');
     msg.style.cssText = 'color:rgba(255,255,255,.6);text-align:center;font-size:.9rem;';
-    msg.textContent = title + ' video not yet uploaded. Share via WhatsApp to +91 8123505794.';
+    msg.textContent = title + ' video not yet uploaded. Share via WhatsApp to +91 9538234899.';
     modal.insertBefore(msg, cl);
   };
 }
@@ -585,6 +645,8 @@ if (calcSlider) {
 }
 loadStock();
 loadGallery();
+initUPITabs();
+initUPIAppLaunchers();
 
 // ===== FAQ ACCORDION TOGGLE =====
 function initFAQAccordion() {
