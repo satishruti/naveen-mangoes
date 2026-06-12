@@ -344,7 +344,7 @@ function tryPlayVideo(src, title) {
     vid.remove();
     const msg = document.createElement('p');
     msg.style.cssText = 'color:rgba(255,255,255,.6);text-align:center;font-size:.9rem;';
-    msg.textContent = title + ' video not yet uploaded. Share via WhatsApp to +91 9538234899.';
+    msg.textContent = title + ' video not yet uploaded. Share via WhatsApp to +91 9538234899 (Alt: +91 8123505794).';
     modal.insertBefore(msg, cl);
   };
 }
@@ -693,6 +693,3 @@ document.addEventListener('DOMContentLoaded', initFAQAccordion);
 if (document.readyState === 'interactive' || document.readyState === 'complete') {
   initFAQAccordion();
 }
-
-
-
